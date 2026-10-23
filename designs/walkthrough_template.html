@@ -1,0 +1,162 @@
+<title>Barndominium Walkthrough</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: full-bleed 3D view; a plan-drawing HUD (minimap, room name) pinned to the corners like a site set. */
+:root{
+  --bg:#1c1b19; --fg:#f3efe6; --muted:#b9b3a6; --panel:rgba(28,27,25,.78); --line:rgba(243,239,230,.22);
+  --accent:#eb6834; --ink-plan:#f3efe6;
+  --display:"Archivo Narrow","Roboto Condensed","Arial Narrow",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#1c1b19;--fg:#f3efe6;--muted:#b9b3a6;--panel:rgba(28,27,25,.78);--line:rgba(243,239,230,.22);--accent:#eb6834;--ink-plan:#f3efe6;color-scheme:dark}}
+:root[data-theme="light"]{--bg:#1c1b19;--fg:#f3efe6;--muted:#b9b3a6;--panel:rgba(28,27,25,.78);--line:rgba(243,239,230,.22);--accent:#eb6834;--ink-plan:#f3efe6;color-scheme:dark}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--display);overflow:hidden;
+  padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+#view{position:absolute;inset:0;touch-action:none}
+canvas{display:block}
+.hud{position:absolute;pointer-events:none;display:flex;flex-direction:column;gap:6px}
+#top{top:calc(14px + env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));flex-direction:row;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.tag{background:var(--panel);border:1px solid var(--line);padding:8px 12px;backdrop-filter:blur(6px);border-radius:3px;min-width:0}
+.tag h1{margin:0;font-size:17px;font-weight:600;letter-spacing:.02em;text-wrap:balance}
+.tag p{margin:2px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+#room{text-align:right}
+#room b{display:block;font-size:20px;font-weight:600;color:var(--accent)}
+#room span{font-family:var(--mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+#bottom{bottom:calc(14px + env(safe-area-inset-bottom,0px));left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));flex-direction:row;align-items:flex-end;justify-content:space-between;gap:12px}
+#map{width:220px;max-width:46vw;height:auto;background:var(--panel);border:1px solid var(--line);border-radius:3px}
+#keys{font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.6;text-align:right}
+#keys kbd{color:var(--fg);border:1px solid var(--line);border-radius:3px;padding:0 5px;font-family:inherit}
+#start{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(28,27,25,.55);cursor:pointer}
+#start .card{background:var(--panel);border:1px solid var(--line);padding:22px 26px;max-width:360px;margin:0 16px;border-radius:3px;backdrop-filter:blur(8px)}
+#start h2{margin:0 0 6px;font-size:24px;font-weight:600;text-wrap:balance}
+#start p{margin:0 0 14px;font-size:15px;color:var(--muted);line-height:1.45}
+#start button{font:600 15px var(--display);letter-spacing:.03em;background:var(--accent);color:#1c1b19;border:0;padding:10px 18px;border-radius:3px;cursor:pointer}
+#start button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.pad{position:absolute;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:120px;height:120px;border-radius:50%;border:1px solid var(--line);background:var(--panel);display:none;touch-action:none}
+.pad i{position:absolute;left:50%;top:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:var(--accent);opacity:.9}
+#padL{left:max(16px,env(safe-area-inset-left,0px))}
+@media (pointer:coarse){.pad{display:block} #keys{display:none} #bottom{justify-content:flex-end}}
+@media (prefers-reduced-motion:reduce){#start .card{transition:none}}
+</style>
+<div id="view"></div>
+<div class="hud" id="top">
+  <div class="tag"><h1>Friendstead barndominium, {{VERSION}}</h1><p>{{L_FT}} x {{W_FT}} ft · 10 ft walls · 4:12 gable · eye height 5'7"</p></div>
+  <div class="tag" id="room"><b id="roomName">Covered porch</b><span id="roomDims"></span></div>
+</div>
+<div class="hud" id="bottom">
+  <canvas id="map" width="{{MAP_W}}" height="{{MAP_H}}"></canvas>
+  <div id="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> walk · mouse look · <kbd>Shift</kbd> run<br><kbd>R</kbd> back to the porch · <kbd>Esc</kbd> release the mouse</div>
+</div>
+<div class="pad" id="padL"><i></i></div>
+<div id="start"><div class="card" role="dialog" aria-labelledby="st"><h2 id="st">Walk through the barndominium</h2><p>You start on the south porch. Walk in through the porch door into the great room, west past the bedrooms and through the hall into the shop, or east to the master suite. On a phone, the left pad walks and dragging the screen looks around.</p><button id="go" type="button">Start walking</button></div></div>
+<div id="err" class="tag" hidden style="position:absolute;left:16px;right:16px;bottom:calc(150px + env(safe-area-inset-bottom,0px));font-family:var(--mono);font-size:12px;color:#ffb4a0;white-space:pre-wrap"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script>
+const errEl = document.getElementById('err');
+function showErr(msg) { errEl.hidden = false; errEl.textContent += (errEl.textContent ? '\n' : '') + msg; }
+addEventListener('error', e => showErr('Error: ' + (e.message || e.type) + (e.filename ? ' (' + e.filename.split('/').pop() + ':' + e.lineno + ')' : '')));
+addEventListener('unhandledrejection', e => showErr('Error: ' + (e.reason && e.reason.message || e.reason)));
+try {
+if (!window.THREE) throw new Error('three.js did not load from the CDN');
+if (!THREE.GLTFLoader) throw new Error('GLTFLoader did not load from the CDN');
+const GLB_B64 = "{{GLB_B64}}";
+const FT = 0.3048, ROOMS = {{ROOMS}}; // [name, x0, y0, x1, y1] in feet, plan coords (x east, y north)
+const L = {{L_FT}} * FT, W = {{W_FT}} * FT, PORCH = {{PORCH_FT}} * FT, EYE = 1.70;
+const view = document.getElementById('view');
+const probe = document.createElement('canvas'); if (!(probe.getContext('webgl2') || probe.getContext('webgl'))) throw new Error('This browser has WebGL turned off, so the 3D view cannot draw');
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputEncoding = THREE.sRGBEncoding; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+view.appendChild(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x9fc4e8); scene.fog = new THREE.Fog(0x9fc4e8, 60, 220);
+const camera = new THREE.PerspectiveCamera(70, 1, 0.05, 400);
+// Blender (x, y, z) -> three (x, z, -y). Start mid-porch, facing north (three -z).
+const START = { x: {{START_X_FT}} * FT, z: PORCH * 0.6, yaw: 0, pitch: 0 };
+const state = { x: START.x, z: START.z, yaw: 0, pitch: 0 };
+const hemi = new THREE.HemisphereLight(0xcfe3ff, 0x6b7a4a, 0.75); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xfff1d6, 1.15); sun.position.set(-30, 45, 35); sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -40, right: 40, top: 40, bottom: -40, near: 1, far: 150 }); sun.shadow.bias = -0.0005; scene.add(sun);
+const ground = new THREE.Mesh(new THREE.CircleGeometry(300, 64), new THREE.MeshStandardMaterial({ color: 0x8a9a5b, roughness: 1 }));
+ground.rotation.x = -Math.PI / 2; ground.position.y = -0.153; ground.receiveShadow = true; scene.add(ground);
+const solids = [];
+const bin = atob(GLB_B64), buf = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+new THREE.GLTFLoader().parse(buf.buffer, '', g => {
+  const edgeMat = new THREE.LineBasicMaterial({ color: 0x3a3732, transparent: true, opacity: 0.55 });
+  g.scene.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.material.side = THREE.DoubleSide; if (!/Roof/.test(o.name)) solids.push(o);
+    if (!/Slab/.test(o.name)) o.add(new THREE.LineSegments(new THREE.EdgesGeometry(o.geometry, 25), edgeMat)); } });
+  // Soft interior fill at ridge height so the two roof slopes shade differently and the vault reads
+  for (const fx of [0.25, 0.5, 0.75]) { const pl = new THREE.PointLight(0xfff4e0, 0.45, 40, 1.5); pl.position.set(L * fx, 4.6, -W / 2); scene.add(pl); }
+  scene.add(g.scene);
+  // Room floors: one tinted panel per room with its name painted on, so walls read against a coloured ground
+  const ROOM_COLORS = [[/shop/i, 0x9d9382], [/porch/i, 0x8f8a80], [/master/i, 0xb094c9], [/closet|pantry/i, 0xc7b4d6], [/bath|laundry/i, 0x6fb8b0], [/bedroom/i, 0x7fa6d4], [/hall/i, 0xd6c678], [/kitchen|living/i, 0xe6a86f]];
+  for (const [name, x0, y0, x1, y1] of ROOMS) {
+    const w = (x1 - x0) * FT, d = (y1 - y0) * FT, cx = (x0 + x1) / 2 * FT, cz = -(y0 + y1) / 2 * FT;
+    const col = (ROOM_COLORS.find(([re]) => re.test(name)) || [0, 0xcccccc])[1];
+    const floor = new THREE.Mesh(new THREE.PlaneGeometry(w - 0.02, d - 0.02), new THREE.MeshStandardMaterial({ color: col, roughness: 0.95 }));
+    floor.rotation.x = -Math.PI / 2; floor.position.set(cx, 0.012, cz); floor.receiveShadow = true; scene.add(floor);
+    const c = document.createElement('canvas'); c.width = 1024; c.height = 256; const ctx = c.getContext('2d');
+    ctx.fillStyle = '#2b2925'; ctx.font = '600 110px "Archivo Narrow", "Arial Narrow", sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(name.toUpperCase(), 512, 100); ctx.font = '500 64px "IBM Plex Mono", monospace'; ctx.fillText(Math.round(x1 - x0) + "' x " + Math.round(y1 - y0) + "'", 512, 200);
+    const tex = new THREE.CanvasTexture(c); tex.encoding = THREE.sRGBEncoding; tex.anisotropy = 8;
+    const lw = Math.min(w * 0.8, d * 3, 4), label = new THREE.Mesh(new THREE.PlaneGeometry(lw, lw / 4), new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.8, depthWrite: false }));
+    label.rotation.x = -Math.PI / 2; label.position.set(cx, 0.02, cz); scene.add(label);
+  }
+}, e => showErr('Model failed to load: ' + (e && e.message || e)));
+// Input
+const keys = new Set(); addEventListener('keydown', e => { keys.add(e.code); if (e.code === 'KeyR') Object.assign(state, { x: START.x, z: START.z, yaw: 0, pitch: 0 }); });
+addEventListener('keyup', e => keys.delete(e.code));
+const start = document.getElementById('start');
+function lock() { try { const r = renderer.domElement.requestPointerLock && renderer.domElement.requestPointerLock(); if (r && r.catch) r.catch(() => {}); } catch (e) { /* drag-look still works */ } }
+document.getElementById('go').addEventListener('click', () => { start.hidden = true; lock(); });
+renderer.domElement.addEventListener('click', () => { if (start.hidden) lock(); });
+addEventListener('mousemove', e => { if (document.pointerLockElement === renderer.domElement || dragLook) turn(e.movementX, e.movementY); });
+function turn(dx, dy) { state.yaw -= dx * 0.0022; state.pitch = Math.max(-1.3, Math.min(1.3, state.pitch - dy * 0.0022)); }
+let dragLook = false; renderer.domElement.addEventListener('mousedown', () => { if (!document.pointerLockElement) dragLook = true; }); addEventListener('mouseup', () => dragLook = false);
+// Touch: left pad walks, any other touch drags to look
+const pad = document.getElementById('padL'), knob = pad.querySelector('i'); let padVec = { x: 0, y: 0 }, padId = null, lookId = null, lookLast = null;
+pad.addEventListener('pointerdown', e => { padId = e.pointerId; pad.setPointerCapture(padId); movePad(e); });
+pad.addEventListener('pointermove', e => { if (e.pointerId === padId) movePad(e); });
+pad.addEventListener('pointerup', () => { padId = null; padVec = { x: 0, y: 0 }; knob.style.transform = ''; });
+function movePad(e) { const r = pad.getBoundingClientRect(); let x = (e.clientX - r.left - r.width / 2) / (r.width / 2), y = (e.clientY - r.top - r.height / 2) / (r.height / 2); const m = Math.hypot(x, y); if (m > 1) { x /= m; y /= m; } padVec = { x, y }; knob.style.transform = `translate(${x * 36}px,${y * 36}px)`; }
+view.addEventListener('pointerdown', e => { if (e.pointerType === 'touch' && lookId === null) { lookId = e.pointerId; lookLast = { x: e.clientX, y: e.clientY }; } });
+view.addEventListener('pointermove', e => { if (e.pointerId === lookId) { turn((e.clientX - lookLast.x) * 2.2, (e.clientY - lookLast.y) * 2.2); lookLast = { x: e.clientX, y: e.clientY }; } });
+addEventListener('pointerup', e => { if (e.pointerId === lookId) lookId = null; });
+// Movement with wall collision: cast at eye and knee height along the step
+const ray = new THREE.Raycaster(); ray.far = 0.45; const dir = new THREE.Vector3(); const clock = new THREE.Clock();
+function blocked(dx, dz) { const len = Math.hypot(dx, dz); if (!len) return false; dir.set(dx / len, 0, dz / len);
+  for (const h of [EYE, 0.5]) { ray.set(new THREE.Vector3(state.x, h, state.z), dir); if (ray.intersectObjects(solids, false).length) return true; } return false; }
+function step(dt) {
+  let f = (keys.has('KeyW') || keys.has('ArrowUp') ? 1 : 0) - (keys.has('KeyS') || keys.has('ArrowDown') ? 1 : 0) - padVec.y;
+  let s = (keys.has('KeyD') || keys.has('ArrowRight') ? 1 : 0) - (keys.has('KeyA') || keys.has('ArrowLeft') ? 1 : 0) + padVec.x;
+  const m = Math.hypot(f, s); if (m > 1) { f /= m; s /= m; }
+  const speed = (keys.has('ShiftLeft') || keys.has('ShiftRight') ? 3.4 : 1.6) * dt;
+  const sy = Math.sin(state.yaw), cy = Math.cos(state.yaw);
+  const dx = (-sy * f + cy * s) * speed, dz = (-cy * f - sy * s) * speed;
+  if (!blocked(dx, 0)) state.x += dx; if (!blocked(0, dz)) state.z += dz;
+  state.x = Math.max(-15, Math.min(L + 15, state.x)); state.z = Math.max(-W - 15, Math.min(PORCH + 25, state.z));
+  camera.position.set(state.x, EYE, state.z); camera.rotation.set(0, 0, 0, 'YXZ'); camera.rotation.y = state.yaw; camera.rotation.x = state.pitch;
+}
+// Room readout and plan minimap (plan coords: x east, y north = -z)
+const nameEl = document.getElementById('roomName'), dimsEl = document.getElementById('roomDims');
+const map = document.getElementById('map'), mctx = map.getContext('2d');
+function whereAmI() { const px = state.x / FT, py = -state.z / FT;
+  const r = ROOMS.find(([, x0, y0, x1, y1]) => px >= x0 && px <= x1 && py >= y0 && py <= y1);
+  return r || ['Outside', 0, 0, 0, 0]; }
+function drawMap(room) { const pad = 24, sx = (map.width - 2 * pad) / (L / FT), sy = (map.height - 2 * pad) / ((W + PORCH) / FT); const S = Math.min(sx, sy);
+  const X = x => pad + x * S, Y = y => map.height - pad - (y + PORCH / FT) * S;
+  mctx.clearRect(0, 0, map.width, map.height); mctx.lineWidth = 2; mctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--ink-plan').trim() || '#fff';
+  mctx.font = '500 13px "IBM Plex Mono", monospace'; mctx.fillStyle = mctx.strokeStyle; mctx.textAlign = 'center';
+  for (const [n, x0, y0, x1, y1] of ROOMS) { mctx.globalAlpha = n === room[0] ? 0.35 : 0.12; mctx.fillRect(X(x0), Y(y1), (x1 - x0) * S, (y1 - y0) * S); mctx.globalAlpha = 0.85; mctx.strokeRect(X(x0), Y(y1), (x1 - x0) * S, (y1 - y0) * S); }
+  mctx.globalAlpha = 1; mctx.fillText('N', X(L / FT / 2), 18); mctx.fillText('porch', X(L / FT / 2), Y(-PORCH / FT / 2));
+  const px = X(state.x / FT), py = Y(-state.z / FT); mctx.fillStyle = '#eb6834'; mctx.beginPath(); mctx.arc(px, py, 6, 0, 7); mctx.fill();
+  mctx.strokeStyle = '#eb6834'; mctx.lineWidth = 3; mctx.beginPath(); mctx.moveTo(px, py); mctx.lineTo(px - Math.sin(state.yaw) * 18, py - Math.cos(state.yaw) * 18); mctx.stroke(); }
+function resize() { const w = view.clientWidth, h = view.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+addEventListener('resize', resize); resize();
+let tick = 0;
+renderer.setAnimationLoop(() => { const dt = Math.min(clock.getDelta(), 0.05); step(dt); renderer.render(scene, camera);
+  if (++tick % 6 === 1) { const r = whereAmI(); nameEl.textContent = r[0]; dimsEl.textContent = r[0] === 'Outside' ? '' : `${Math.round(r[3] - r[1])}' x ${Math.round(r[4] - r[2])}'  ·  ${Math.round((r[3] - r[1]) * (r[4] - r[2]))} sq ft`; drawMap(r); } });
+} catch (e) { showErr('Error: ' + e.message); }
+</script>

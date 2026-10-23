@@ -1,0 +1,530 @@
+{
+ "walls": [
+  {
+   "name": "South wall (porch side)",
+   "length": 18.288,
+   "x": 0,
+   "y": 0,
+   "rot": 0,
+   "thk": 0.20330160000000003
+  },
+  {
+   "name": "North wall",
+   "length": 18.288,
+   "x": 0,
+   "y": 11.9886984,
+   "rot": 0,
+   "thk": 0.20330160000000003
+  },
+  {
+   "name": "West wall (gable, shop door)",
+   "length": 12.192,
+   "x": 0.20330160000000003,
+   "y": 0,
+   "rot": 90,
+   "thk": 0.20330160000000003
+  },
+  {
+   "name": "East wall (gable)",
+   "length": 12.192,
+   "x": 18.288,
+   "y": 0,
+   "rot": 90,
+   "thk": 0.20330160000000003
+  },
+  {
+   "name": "Shop partition",
+   "length": 11.785396800000001,
+   "x": 6.3755016,
+   "y": 0.20330160000000003,
+   "rot": 90,
+   "thk": 0.1524
+  },
+  {
+   "name": "Bedroom wing wall",
+   "length": 11.785396800000001,
+   "x": 10.0902516,
+   "y": 0.20330160000000003,
+   "rot": 90,
+   "thk": 0.11430000000000001
+  },
+  {
+   "name": "Bedroom 1 back wall",
+   "length": 3.6576000000000004,
+   "x": 6.3755016,
+   "y": 4.1085516,
+   "rot": 0,
+   "thk": 0.11430000000000001
+  },
+  {
+   "name": "Hall north wall",
+   "length": 3.6576000000000004,
+   "x": 6.3755016,
+   "y": 5.3277516,
+   "rot": 0,
+   "thk": 0.11430000000000001
+  },
+  {
+   "name": "Core north wall",
+   "length": 3.6576000000000004,
+   "x": 6.3755016,
+   "y": 8.2233516,
+   "rot": 0,
+   "thk": 0.11430000000000001
+  },
+  {
+   "name": "Bath 1 / laundry wall",
+   "length": 2.895600000000001,
+   "x": 8.5662516,
+   "y": 5.3849016,
+   "rot": 90,
+   "thk": 0.11430000000000001
+  },
+  {
+   "name": "Master wing wall",
+   "length": 11.785396800000001,
+   "x": 14.7890484,
+   "y": 0.20330160000000003,
+   "rot": 90,
+   "thk": 0.11430000000000001
+  },
+  {
+   "name": "Master back wall",
+   "length": 3.3528000000000002,
+   "x": 14.7318984,
+   "y": 4.7181516,
+   "rot": 0,
+   "thk": 0.11430000000000001
+  },
+  {
+   "name": "Closet north wall",
+   "length": 3.3528000000000002,
+   "x": 14.7318984,
+   "y": 6.2421516,
+   "rot": 0,
+   "thk": 0.11430000000000001
+  },
+  {
+   "name": "Master bath north wall",
+   "length": 3.3528000000000002,
+   "x": 14.7318984,
+   "y": 8.9853516,
+   "rot": 0,
+   "thk": 0.11430000000000001
+  }
+ ],
+ "openings": [
+  {
+   "name": "Shop roll-up door, west gable",
+   "width": 3.6576000000000004,
+   "x": 0.10165080000000001,
+   "y": 6.096,
+   "along": "y",
+   "kind": "door"
+  },
+  {
+   "name": "Shop man door, south",
+   "width": 0.9144000000000001,
+   "x": 5.0801016,
+   "y": 0.10165080000000001,
+   "along": "x",
+   "kind": "door"
+  },
+  {
+   "name": "Porch door",
+   "width": 0.9144000000000001,
+   "x": 12.3825,
+   "y": 0.10165080000000001,
+   "along": "x",
+   "kind": "door"
+  },
+  {
+   "name": "Hall door",
+   "width": 0.9144000000000001,
+   "x": 10.0331016,
+   "y": 4.775301600000001,
+   "along": "y",
+   "kind": "door"
+  },
+  {
+   "name": "Hall to shop door",
+   "width": 0.9144000000000001,
+   "x": 6.2993016,
+   "y": 4.775301600000001,
+   "along": "y",
+   "kind": "door"
+  },
+  {
+   "name": "Bedroom 1 door",
+   "width": 0.9144000000000001,
+   "x": 9.1187016,
+   "y": 4.1657016,
+   "along": "x",
+   "kind": "door"
+  },
+  {
+   "name": "Bath 1 door",
+   "width": 0.9144000000000001,
+   "x": 7.2899016,
+   "y": 5.3849016,
+   "along": "x",
+   "kind": "door"
+  },
+  {
+   "name": "Laundry door",
+   "width": 0.9144000000000001,
+   "x": 9.2711016,
+   "y": 5.3849016,
+   "along": "x",
+   "kind": "door"
+  },
+  {
+   "name": "Bedroom 2 door",
+   "width": 0.9144000000000001,
+   "x": 10.0331016,
+   "y": 9.194901600000001,
+   "along": "y",
+   "kind": "door"
+  },
+  {
+   "name": "Master door",
+   "width": 0.9144000000000001,
+   "x": 14.7318984,
+   "y": 3.8609015999999996,
+   "along": "y",
+   "kind": "door"
+  },
+  {
+   "name": "Closet door",
+   "width": 0.9144000000000001,
+   "x": 15.646298400000001,
+   "y": 4.7753016,
+   "along": "x",
+   "kind": "door"
+  },
+  {
+   "name": "Master bath door",
+   "width": 0.9144000000000001,
+   "x": 15.646298400000001,
+   "y": 6.2993016,
+   "along": "x",
+   "kind": "door"
+  },
+  {
+   "name": "Utility door",
+   "width": 0.9144000000000001,
+   "x": 14.7318984,
+   "y": 10.5156,
+   "along": "y",
+   "kind": "door"
+  },
+  {
+   "name": "South window, bedroom 1",
+   "width": 1.2192,
+   "x": 8.2043016,
+   "y": 0.10165080000000001,
+   "along": "x",
+   "kind": "window"
+  },
+  {
+   "name": "South window, great room west",
+   "width": 1.2192,
+   "x": 11.207800800000001,
+   "y": 0.10165080000000001,
+   "along": "x",
+   "kind": "window"
+  },
+  {
+   "name": "South window, great room east",
+   "width": 1.2192,
+   "x": 13.5571992,
+   "y": 0.10165080000000001,
+   "along": "x",
+   "kind": "window"
+  },
+  {
+   "name": "South window, master",
+   "width": 1.2192,
+   "x": 16.4082984,
+   "y": 0.10165080000000001,
+   "along": "x",
+   "kind": "window"
+  },
+  {
+   "name": "North window, bedroom 2",
+   "width": 1.2192,
+   "x": 8.2043016,
+   "y": 12.0903492,
+   "along": "x",
+   "kind": "window"
+  },
+  {
+   "name": "North window, kitchen",
+   "width": 1.2192,
+   "x": 12.3825,
+   "y": 12.0903492,
+   "along": "x",
+   "kind": "window"
+  },
+  {
+   "name": "East window, master",
+   "width": 1.2192,
+   "x": 18.1863492,
+   "y": 2.4893016,
+   "along": "y",
+   "kind": "window"
+  }
+ ],
+ "rooms": [
+  [
+   "Shop",
+   0.20330160000000003,
+   0.20330160000000003,
+   6.2231016,
+   11.9886984
+  ],
+  [
+   "Bedroom 1",
+   6.3755016,
+   0.20330160000000003,
+   10.0331016,
+   4.1657016
+  ],
+  [
+   "Hall",
+   6.3755016,
+   4.1657016,
+   10.0331016,
+   5.3849016
+  ],
+  [
+   "Bath 1",
+   6.3755016,
+   5.3849016,
+   8.5091016,
+   8.280501600000001
+  ],
+  [
+   "Laundry",
+   8.5091016,
+   5.3849016,
+   10.0331016,
+   8.280501600000001
+  ],
+  [
+   "Bedroom 2",
+   6.3755016,
+   8.280501600000001,
+   10.0331016,
+   11.9886984
+  ],
+  [
+   "Kitchen / dining / living",
+   10.0331016,
+   0.20330160000000003,
+   14.7318984,
+   11.9886984
+  ],
+  [
+   "Master bedroom",
+   14.7318984,
+   0.20330160000000003,
+   18.0846984,
+   4.7753016
+  ],
+  [
+   "Closet",
+   14.7318984,
+   4.7753016,
+   18.0846984,
+   6.2993016
+  ],
+  [
+   "Master bath",
+   14.7318984,
+   6.2993016,
+   18.0846984,
+   9.0425016
+  ],
+  [
+   "Utility",
+   14.7318984,
+   9.0425016,
+   18.0846984,
+   11.9886984
+  ],
+  [
+   "Covered porch",
+   0,
+   -3.048,
+   18.288,
+   0
+  ]
+ ],
+ "posts": [
+  [
+   0.1524,
+   -2.8956
+  ],
+  [
+   3.1496,
+   -2.8956
+  ],
+  [
+   6.1468,
+   -2.8956
+  ],
+  [
+   9.144,
+   -2.8956
+  ],
+  [
+   12.1412,
+   -2.8956
+  ],
+  [
+   15.138399999999999,
+   -2.8956
+  ],
+  [
+   18.1356,
+   -2.8956
+  ]
+ ],
+ "wet_core": [
+  [
+   "Bath 1",
+   6.3755016,
+   5.3849016,
+   8.5091016,
+   8.280501600000001
+  ],
+  [
+   "Laundry",
+   8.5091016,
+   5.3849016,
+   10.0331016,
+   8.280501600000001
+  ],
+  [
+   "Kitchen",
+   10.0331016,
+   8.9406984,
+   14.7318984,
+   11.9886984
+  ],
+  [
+   "Master bath",
+   14.7318984,
+   6.2993016,
+   18.0846984,
+   9.0425016
+  ],
+  [
+   "Utility",
+   14.7318984,
+   9.0425016,
+   18.0846984,
+   11.9886984
+  ]
+ ],
+ "trench": [
+  [
+   6.3755016,
+   5.9945016
+  ],
+  [
+   18.0846984,
+   5.9945016
+  ]
+ ],
+ "dims": [
+  [
+   0,
+   60.0,
+   42.5,
+   "60'",
+   false
+  ],
+  [
+   0,
+   20.0,
+   -12.5,
+   "20' shop",
+   false
+  ],
+  [
+   20.916999999999998,
+   32.917,
+   -12.5,
+   "12'",
+   false
+  ],
+  [
+   32.917,
+   48.333,
+   -12.5,
+   "15'",
+   false
+  ],
+  [
+   48.333,
+   60.0,
+   -12.5,
+   "12'",
+   false
+  ],
+  [
+   -10.0,
+   0,
+   -2.5,
+   "10' porch",
+   true
+  ],
+  [
+   0,
+   40.0,
+   -2.5,
+   "40'",
+   true
+  ]
+ ],
+ "start_x_ft": 40.625,
+ "finishes": {
+  "roof": "Standing-seam steel, PVDF (Kynar 500) bright white: initial SR about 0.68-0.72, emittance 0.85, SRI 82-88",
+  "walls": "PVDF bone white or light stone wall panel: SRI about 80; any colour with SRI above 65 is acceptable",
+  "avoid": "Bare Galvalume (SRI about 62, low emittance) and dark bronze or charcoal (SRI about 25)",
+  "source": "McElroy Metal cool-roof tables and ORNL/FSEC Fort Myers field study, checked 2026-10-22"
+ },
+ "params": {
+  "length_ft": 60.0,
+  "width_ft": 40.0,
+  "eave_ft": 10.0,
+  "pitch": 0.3333333333333333,
+  "porch_depth_ft": 10.0,
+  "porch_pitch": 0.16666666666666666,
+  "shop_length_ft": 20.0,
+  "wall_thk_ft": 0.667,
+  "partition_thk_ft": 0.5,
+  "slab_thk_ft": 0.5,
+  "overhang_ft": 1.0,
+  "rollup_w_ft": 12.0,
+  "rollup_h_ft": 8.0,
+  "man_door_w_ft": 3.0,
+  "man_door_h_ft": 6.67,
+  "window_w_ft": 4.0,
+  "window_h_ft": 4.0,
+  "window_sill_ft": 3.0,
+  "porch_post_count": 7,
+  "int_thk_ft": 0.375,
+  "bed_wing_ft": 12.0,
+  "bedroom_depth_ft": 13.0,
+  "hall_w_ft": 4.0,
+  "core_depth_ft": 9.5,
+  "bath_w_ft": 7.0,
+  "master_wing_ft": 11.0,
+  "master_depth_ft": 15.0,
+  "closet_depth_ft": 5.0,
+  "master_bath_depth_ft": 9.0
+ }
+}
