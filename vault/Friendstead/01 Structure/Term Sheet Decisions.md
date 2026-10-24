@@ -51,6 +51,7 @@ Share it as a cost-sharing project among people who will all do the work, not as
 - [ ] Homesite transfer as an in-kind distribution on plat, never a purchase contract
 - [ ] Phase 1 occupancy terms for the barndominium: license or lease, house rules, utilities, departure
 - [ ] Warranty disclaimers and mutual releases for member work on each other's homes
-- [ ] Admitting a later household: price at cost plus carrying costs or at market, and by what vote
+- [ ] Admitting a later household: price at cost plus carrying costs or at market, and by what vote; admission criteria written and objective, right of first refusal matches price only, no buyer-approval discretion and no stated preference in covenants or marketing (fair housing, [S80])
+- [ ] Not an employer: company agreement, labor exhibit, safety rules and releases all say members contribute hours as owners, not under a contract of hire; no wages, no rate, no supervision as a boss; trades are independent contractors ([S78])
 - [ ] Pre-formation cost sharing and where money sits before the LLC exists
 - [ ] Insurance program in three layers: LLC, POA and household, with the shop release form
