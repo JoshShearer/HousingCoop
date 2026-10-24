@@ -57,4 +57,4 @@ The median buys an existing house on a subdivision lot. No reliable median for n
 | Private road | Gravel with drainage about $60,000 to $210,000 a mile, or $11 to $40 a foot (approximate, unopened cost guides); Bastrop defines a rural roadway as paved, so budget $75 a foot if required | **[S8]**, road cost **[M]** |
 | Survey, engineering, plat | $80,000 (source memo's figure) | **[M]** |
 | Legal package | $40,000 to $60,000 for ten interlocking documents | **[J]** |
-| Land loan | 20 to 50% down, portfolio or Farm Credit lenders; credit-union land APRs 8.2 to 9.0% in October 2026 (search results) | **[S42]** |
+| Land loan | Raw land 35 to 50% down, unimproved lots 25 to 35%, improved lots 20 to 25%, from portfolio banks or Farm Credit; Herring Bank's worked example runs about 7.5% at a bank and 7.75% at Farm Credit; credit-union land APRs 8.2 to 9.0% in October 2026 are from search results only | **[S42]** |
