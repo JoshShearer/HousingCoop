@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: model
-updated: 2026-10-22
+updated: 2026-10-24
 ---
 
 # Per-Member Cost Model
@@ -23,7 +23,7 @@ The home segment is where the difference lives: $290,000 owner-built with member
 | Soft costs and contingency | $30,000 | $30,000 | $35,000 | $35,000 | Plans, permits, builder's risk, 5 to 8% contingency |
 | Financing during build | $25,000 | $25,000 | $25,000 | $25,000 | Interest on a 35% down land loan and construction draws over 18 months |
 | **Total cash** | **$650,000** | **$695,000** | **$815,000** | **$770,000** | |
-| Member labor | about 3,000 hours | 1,500 hours | 0 | 0 | Not cash; the saving works out to $40 to $80 an hour |
+| Member labor | about 3,000 hours | 1,500 hours | 0 | 0 | Not cash; the cash saved divided by the hours is about $80 an hour on average, $125 to $135 on shell work and $50 to $70 on finishes **[S86]** |
 
 The metro median home at $421,000 **[S1]** is cheaper than every build path, but it is an existing house on a subdivision lot.
 
@@ -38,6 +38,25 @@ East side at $28,000 an acre with the 10-acre common tract split equally **[M]**
 | C | 5 acres | $140,000 | $47,000 | $187,000 | $742,000 |
 
 A smaller or simpler home moves a tier more than the lot does: a 1,600 sq ft barndominium on a 2-acre lot comes in near $540,000, the floor for this project on the east side. See [[Build Systems Compared]].
+
+## What each household puts in, by headcount
+
+Most of the shared pot does not shrink when fewer households join: the 10-acre common tract ($280,000 at $28,000 an acre), the paved road ($150,000), the electric backbone ($60,000), engineering and plat ($80,000) and legal ($50,000), plus 10% contingency on the development items. With the barndominium ($250,000 plus $25,000 septic) the pot is about $955,000; without it about $655,000 **[M]**. Each household then adds its own lot, utilities and home, about $385,000 at 1,500 hours of own-home labor in the base case.
+
+| Households | Shared pot each, with barndo | Shared pot each, without | Cash at pre-formation | Cash at land closing (35% down) | Shared-work hours each |
+|---|---|---|---|---|---|
+| 3 | $319,000 | $218,000 | $20,000 | $100,000 | 1,000 |
+| 4 | $239,000 | $164,000 | $15,000 | $75,000 | 750 |
+| 6 | $159,000 | $109,000 | $10,000 | $50,000 | 500 |
+| 8 | $120,000 | $82,000 | $7,500 | $37,500 | 375 |
+
+How to read it **[M]**:
+
+- **Pre-formation** is the money spent before the LLC owns anything: attorney for formation and the first agreements ($15,000 to $30,000), the engineer's feasibility work and lot map ($15,000 to $25,000), a test well and soil evaluation ($5,000 to $10,000) and the option fee or earnest money (about 1% of the tract, $8,000). Call it $60,000 in total. It is paid under the pre-formation cost-sharing letter ([[Term Sheet Decisions]]), held in an attorney's trust account or a dedicated LLC account, and is the money at risk if feasibility fails.
+- **Land closing** assumes the same 30 acres at every headcount, 35% down on $840,000 plus closing costs, so about $300,000 of cash split evenly. Every household also carries its share of the personal guarantee on the loan balance until the lots are deeded ([[Friendstead Risks]]).
+- **Shared pot** is paid in capital calls over roughly the year after closing, under the capital-call ladder in the company agreement. A household short on hours pays a larger share of this pot; that is the only place labor and cash meet ([[Entity and Ownership Design#Labor without a tax bill]]).
+- **Shared-work hours** are the road prep, barndominium, fencing and common-tract work, about 3,000 crew hours in total, divided evenly and separate from the 1,500 to 3,000 hours each household spends on its own home.
+- **Three households** overstates the pot, because three lots of 10 acres or more can skip the plat, the county road standard and most of the engineering ([[Entity and Ownership Design#The 10-acre alternative]]); the sensitivity table above puts that route at about $40,000 more per household than six, not $160,000. **Eight or more** starts to need real governance and can cross the 25-person public-water-system line on a single well **[S15]**, so wells go in threes.
 
 ## What the barndominium is really buying
 

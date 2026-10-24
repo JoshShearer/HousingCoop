@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: analysis
-updated: 2026-10-22
+updated: 2026-10-24
 ---
 
 # Agricultural Valuation
@@ -14,7 +14,7 @@ Buy a tract that already carries 1-d-1 open-space valuation, keep the use runnin
 - **Beekeeping** is agriculture by statute on not less than 5 and not more than 20 acres **[S25]**. Every county opened requires six colonies on the first five acres; Bastrop and Caldwell add one hive per 2.5 acres **[S29]** **[S30]**. Hays and the Travis extension office exclude the homesite, so a 5-acre homestead lot cannot qualify by itself **[S28]** **[S27]**.
 - **Wildlife management** is only a conversion from land already under ag or timber appraisal, with at least three of seven practices and a county minimum tract size **[S26]**. Hays requires 14.29 acres standalone or 12.5 acres per member of a wildlife property association **[S28]**, so a 10-acre common tract fails there.
 - **Homesite.** The appraisal district carves out the residence and the land around it at market value; the homestead exemption can cover up to 20 acres, and in Hays any acreage under a homestead exemption is out of the ag calculation **[S28]**.
-- **Rollback.** When qualified land changes use, the owner owes the tax difference for the preceding years plus interest. The statute was cut to three years in 2019 (Tax Code 23.55, from search results, not opened); the Hays and Caldwell packets opened still print the old five-year text, so confirm.
+- **Rollback.** When qualified land changes use, the owner owes the difference between the ag tax and the market-value tax for the three years preceding the change (Tax Code § 23.55(a), cut from five years by H.B. 1743 in 2019; the interest charge was removed by H.B. 3833 in 2021). If only part of a parcel changes use, only that part is charged (§ 23.55(d)). The chief appraiser determines the change and the owner may protest it (§ 23.55(e)) **[S85]**. The Hays and Caldwell packets opened still print the old five-year text; the statute controls. A new owner must file a new application before 1 May or lose the valuation for that year (§ 23.54(d), (e)) **[S85]**.
 
 ## County minimums, from the appraisal districts
 

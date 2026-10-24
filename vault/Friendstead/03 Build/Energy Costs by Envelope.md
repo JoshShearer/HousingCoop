@@ -1,12 +1,12 @@
 ---
 tags: [friendstead]
 type: model
-updated: 2026-10-22
+updated: 2026-10-24
 ---
 
 # Energy Costs by Envelope
 
-A code-built 2,000 sq ft Texas home uses about 13,000 kWh a year **[S23]**, which at the Q2 2026 Texas average of 15.4 cents **[S22]** is about $2,000. SIPs cut that by roughly a fifth; a barndominium matches code only if the metal shell gets closed-cell spray foam, and a light-gauge steel frame matches code only with exterior continuous insulation **[M]**. Part of [[Friendstead]]; see [[Build Systems Compared]].
+A code-built 2,000 sq ft Texas home uses about 13,000 kWh a year **[S23]**, which at the Q2 2026 Texas average of 15.4 cents **[S22]** is about $2,000. SIPs cut that by roughly a fifth; a barndominium matches code only if the metal shell gets closed-cell spray foam, and a light-gauge steel frame matches code only with exterior continuous insulation **[M]**. Part of [[Friendstead]]; see [[Build Systems Compared]] and, for the net-zero and Passive House case, [[Zero Energy Passive Design]].
 
 | Envelope                                                | Annual kWh | Year-one cost | Ten-year cost at 3% a year escalation | Basis                                                                                                                                                                         |
 | ------------------------------------------------------- | ---------- | ------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -14,6 +14,7 @@ A code-built 2,000 sq ft Texas home uses about 13,000 kWh a year **[S23]**, whic
 | Stick-built 2x6 with R-20 walls and sealed ducts        | 11,700     | $1,800        | $20,600                               | About 10% below code **[M]**                                                                                                                                                  |
 | SIP-only or timber frame + SIP                          | 10,400     | $1,600        | $18,300                               | ORNL Building America found 40 to 50% less HVAC energy in mixed-humid climates; HVAC is about half of a Texas home's use, so about 20% whole-house **[S21]** (vendor summary) |
 | Barndominium, closed-cell spray foam                    | 13,000     | $2,000        | $22,900                               | Matches code; steel framing bridges heat, foam offsets it **[J]**                                                                                                             |
+| Barndominium, ZERH grade: infill wall with R-5 continuous foam, roof R-30+, SHGC 0.20 windows, 2.5 ACH50, inverter heat pump, dehumidifier, heat-pump water heater | 9,400 | $1,450 | $16,600 | About 28% below code, HERS in the 40s against about 60 to 65 for a 2015-code house **[M]**; package from DOE's hot-humid ZERH solution **[S98]**; see [[Zero Energy Passive Design]] |
 | Steel frame kit with R-5 exterior continuous insulation | 13,000     | $2,000        | $22,900                               | Matches code; exterior foam cancels the stud bridging **[M]**                                                                                                                 |
 | Steel frame kit, batts only                             | 14,300     | $2,200        | $25,200                               | Steel studs halve effective wall R-value (ASHRAE 90.1: nominal R-11 performs at about R-5.5) **[S60]**; about 10% above code **[M]**                                          |
 | Barndominium, batt or vinyl-faced insulation only       | 15,600     | $2,400        | $27,500                               | About 20% above code **[M]**                                                                                                                                                  |

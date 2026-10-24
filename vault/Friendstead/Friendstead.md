@@ -2,7 +2,7 @@
 tags: [friendstead, moc]
 type: map-of-content
 status: research
-updated: 2026-10-23
+updated: 2026-10-24
 ---
 
 # Friendstead
@@ -30,15 +30,20 @@ A friend-group self-build community on 20 to 40 acres near Austin, Texas. Resear
 | Co-op versus buying | [[Co-op vs Buying Outright]] |
 | Savings not yet in the model | [[Further Cost Levers]] |
 | Stick, SIP or barndominium | [[Build Systems Compared]] · [[Energy Costs by Envelope]] |
+| Net-zero or Passive House, and what it costs here | [[Zero Energy Passive Design]] |
 | Where material prices have gone | [[Building Materials Price History]] |
 | Could members make their own SIPs | [[Self-Made SIP Panels]] |
 | Who can do what work | [[Member Labor Matrix]] |
-| Tax and code levers | [[Tax and Code Savings]] · [[Agricultural Valuation]] |
+| Tax and code levers | [[Tax and Code Savings]] · [[Agricultural Valuation]] · [[Energy Incentives]] |
 | What can go wrong | [[Friendstead Risks]] |
+| Who decides, and how a household leaves | [[Governance and Exit]] |
 | What to decide next | [[Term Sheet Decisions]] |
 | Assumptions and answers | [[Friendstead Open Questions]] |
 | Where numbers come from | [[Friendstead Sources]] |
 | What changed when | [[Friendstead Decision Log]] |
+| What each household pays in, by headcount | [[Per-Member Cost Model#What each household puts in, by headcount]] |
+| What property tax looks like over 20 years | [[Tax and Code Savings#Property tax over 20 years]] |
+| Which efficiency and clean-energy incentives still exist | [[Energy Incentives]] |
 
 ## Designs
 

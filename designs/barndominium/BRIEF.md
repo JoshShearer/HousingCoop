@@ -20,7 +20,7 @@ The shared building: Phase 1 housing for the group during the build, then the wo
 | Porch | 10 ft deep covered porch along the whole 70 ft south side, 2:12 shed roof tied in under the eave, 8 posts | Decided 22 Oct 2026; shade and outdoor living on the sun side |
 | Entry | Timber-frame cross gable over the porch, centred on the porch door and covering both great-room windows: 24 ft wide, 10 ft projection to the post line, 4:12 to match the main roof, ridge at 14 ft. Exposed king-post truss on the front (8x10 bottom chord, 6x8 rafters, 6x6 king post, 4x6 struts) on two 8x8 posts, 8x10 eave beams back to the wall, 6x8 ridge beam. The porch shed roof is cut away under it | Decided 23 Oct 2026. Massing shows the gable dying into the wall plane with a back infill; the real build continues it into the main roof with valleys. Timber at Hill Country package rates about $5,000 to $9,000 extra **[M]** |
 | Utilities | Its own well or the first shared well, aerobic septic sized for 8 occupants, 200 A service with a workshop subpanel | Phase 1 occupancy sets the septic size |
-| Budget | v5 cash estimate about $256,000: house 2,000 sq ft at the model's $107 per sq ft co-op cash rate ($214,000), shop shell 800 sq ft at about $35 per sq ft ($28,000), porch 700 sq ft at about $20 per sq ft ($14,000); v4 at 60 ft was about $210,000 and the 72 ft v3 about $253,000 on the same rates **[M]**. Septic $25,000 on top. Shell-only fallback $100,000 | Rates from the build comparison (barndominium co-op cash $214,000 for 2,000 sq ft) extrapolated 23 Oct 2026; not quotes |
+| Budget | v5 cash estimate about $256,000: house 2,000 sq ft at the model's $107 per sq ft co-op cash rate ($214,000), shop shell 800 sq ft at about $35 per sq ft ($28,000), porch 700 sq ft at about $20 per sq ft ($14,000); v4 at 60 ft was about $210,000 and the 72 ft v3 about $253,000 on the same rates **[M]**. Septic $25,000 on top. Shell-only fallback $100,000 | Rates from the build comparison (barndominium co-op cash $214,000 for 2,000 sq ft) extrapolated 23 Oct 2026; not quotes. Cross-checked 24 Oct 2026 against MR Post Frame's Cedar, a 40 x 64 x 14 ft post-frame with an 820 sq ft porch in Iowa 2024: self-build about $252,000 all-in, pro $385,000, 421 builder hours for the shell (`sources/2026-10-24-mr-post-frame-cedar-cost-breakdown.md`). Carry $256,000 to $280,000 |
 
 ## Open design questions
 
@@ -33,6 +33,7 @@ The shared building: Phase 1 housing for the group during the build, then the wo
 - [ ] Shop on the west end (as modelled) or mirrored to the east, depending on which way the drive comes in
 - [ ] Door and window schedule once a frame vendor's bay spacing is known
 - [ ] Whether the group builds this first as the training project before the houses
+- [ ] Post-frame instead of red iron: the Cedar's shell was erected by one builder in 421 hours with a telehandler, so members could erect a post-frame shell themselves, about $105,000 of bid-priced labor on a house this size; red iron needs a crane and the vendor's crew. Ask for both quotes
 
 ## Files
 

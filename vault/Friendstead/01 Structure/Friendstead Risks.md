@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: analysis
-updated: 2026-10-23
+updated: 2026-10-24
 ---
 
 # Friendstead Risks
@@ -33,3 +33,5 @@ The four risks that can sink the project are feasibility, water, a member runnin
 | Member sued personally for an accident on the road, in the shop or on the common tract | Medium over 30 years | Judgment against a household | POA owns and insures the shared assets and its members are not liable for its obligations (BOC § 22.152); shop rules and signed releases; recreational-use limits under CPRC ch. 75; see [[Entity and Ownership Design#Liability protection for the properties]] |
 
 The source memo's 40-to-60-event contingency matrix is the right next artifact; each row above becomes a clause.
+
+The exit, buyout, divorce, replacement and dispute responses above are worked through phase by phase in [[Governance and Exit]].

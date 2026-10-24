@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: analysis
-updated: 2026-10-23
+updated: 2026-10-24
 ---
 
 # Entity and Ownership Design
@@ -37,6 +37,8 @@ Three findings sharpen the [[Texas Self-Build Community Structure Memo|source me
 3. **Common tract, road, well and barndominium: a Chapter 209 POA.** Recorded declaration ties membership to lot ownership, makes assessments a lien, and gives the right of first refusal teeth. Keep it short: road, water, barndo, gate, drainage, reserve study every five years.
 4. **Member money and labor: two documents, and labor is never priced in dollars.** Company agreement for cash. A Mutual Construction Labor Agreement sets an hour target per household, the tasks that count, who may do licensed work (nobody without a license), the safety rules and the insurance program. The ledger is kept in hours only; a shortfall raises that household's cash share of shared development by a formula in the company agreement, and money never passes between households for hours. See [[Member Labor Matrix]] and *Labor without a tax bill* below.
 5. **Shared barndominium: LLC asset in Phase 1, POA asset after plat, permitted as a residence from the first permit.** Size the septic for the Phase 1 occupant count.
+
+Who votes on what inside the LLC and the POA, and how a household leaves at each stage, is in [[Governance and Exit]].
 
 ## The 10-acre alternative
 

@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: model
-updated: 2026-10-22
+updated: 2026-10-24
 ---
 
 # Build Systems Compared
@@ -20,16 +20,40 @@ The black tick on each bar is what the co-op pays when members do every task the
 | Construction cost after 18% fee | $381,000 | $407,000 | $428,000 | $508,000 | $271,000 |
 | Materials | $229,000 (60%) | $270,000 (66%, panels and engineering) | $270,000 (63%; frame kit $60,000 of it, plus $7,000 exterior continuous insulation) | $330,000 (65%, kit $140,000 to $180,000 of it) | $176,000 (65%, erected shell $80,000 of it) |
 | Labor at crew rates | $152,000 | $137,000 | $158,000 | $178,000 | $95,000 |
-| Labor members can do | $90,000: framing, siding, roofing, insulation, drywall, paint, flooring, trim | $70,000: finishes and assisting the panel crew | $90,000: screw-gun assembly of pre-cut panels and trusses, exterior foam, siding, roofing, insulation, drywall, finishes | $75,000: finishes; frame raising needs the crew and a crane | $57,000: interior framing, insulation, drywall, finishes |
-| Co-op cost, members do all doable work | $290,000 | $337,000 | $338,000 | $433,000 | $214,000 |
+| Labor members can do | $90,000: framing, siding, roofing, insulation, drywall, paint, flooring, trim | $70,000: finishes and assisting the panel crew | $90,000: screw-gun assembly of pre-cut panels and trusses, exterior foam, siding, roofing, insulation, drywall, finishes | $75,000: finishes; frame raising needs the crew and a crane | $57,000: interior framing, insulation, drywall, finishes (red iron, vendor-erected shell). About $105,000 at bid prices if the shell is post-frame and members erect it, as the Cedar's builder did alone in 421 hours with a telehandler **[S86]** |
+| Co-op cost, members do all doable work | $290,000 | $337,000 | $338,000 | $433,000 | $214,000; a post-frame shell at the Cedar's self-build share lands at $210,000 **[S86]** |
 | Co-op cost at 1,500 member hours | $335,000 | $367,000 | $383,000 | $463,000 | $226,000 |
-| Amateur hours to do all doable work | about 3,000 | about 2,300 | about 2,700; no cutting or layout, but trusses need many hands or a lift | about 2,500 | about 1,900 |
+| Amateur hours to do all doable work | about 3,000 | about 2,300 | about 2,700; no cutting or layout, but trusses need many hands or a lift | about 2,500 | about 1,900; post-frame 1,400 to 1,900 (the Cedar's 421 skilled shell hours at 1.3 to 1.5 times slower, plus trades and finishes) **[S86]** |
 | Build time, co-op | 14 to 20 months | 10 to 14 months, dried-in in days | 12 to 16 months; kit lead time 8 to 12 weeks | 10 to 14 months | 8 to 12 months |
 | Financing and resale | Conventional | Conventional; appraisers see a normal house | Conventional; appraisers see a normal house; termite-proof and non-combustible frame helps insurance **[J]** | Conventional; premium resale in the right market | Some lenders and insurers treat it as nonstandard; appraisals can lag **[J]** |
 
-**How to read it.** Crew labor at a loaded $40 an hour makes $90,000 about 2,250 crew hours; amateurs run 1.3 to 1.5 times slower, so about 3,000 hours per house. Six houses is 18,000 hours, or 3,000 per household over the program. At 20 hours a week that is three years of weekends. The 1,500-hour row is the realistic pledge for households holding jobs **[J]**.
+**How to read it.** Crew labor at a loaded $40 an hour makes $90,000 about 2,250 crew hours; amateurs run 1.3 to 1.5 times slower, so about 3,000 hours per house. Six houses is 18,000 hours, or 3,000 per household over the program. At 20 hours a week that is three years of weekends. The 1,500-hour row is the realistic pledge for households holding jobs **[J]**. What a member hour saves depends on the task: about $80 on average, $125 to $135 on shell work and $50 to $70 on finishes, going by the Cedar's bid-priced labor counter **[S86]**; the cost model's earlier $40 to $80 was a wage, not a bid price.
 
 **Package prices found:** timber frame kit $60 to $90 per sq ft and turnkey $250 to $500 **[S17]**; SIP-only package from $129 per sq ft and timber frame package from $269 per sq ft **[S18]**. The SIP and timber-frame contractor figures are approximate; no Texas 2026 bid was found.
+
+
+## Cross-check against a documented build
+
+MR Post Frame's "The Cedar", a 40 x 64 ft post-frame barndominium with 14 ft walls, an 82 x 10 ft porch and a storage mezzanine, built in south-central Iowa in summer 2024 and costed on screen item by item (pro price, self-build price with the builder's labor removed, and his hours) **[S86]**. Transcript and every on-screen figure are in the repo at `sources/2026-10-24-mr-post-frame-cedar-cost-breakdown.md`. It is wood post-frame, not red iron, and two years and one state away, so the comparison is on shares and per-square-foot rates, not dollars.
+
+| Measure | The Cedar (Iowa, 2024) | This model (east of Austin, 2026) | Ours against the video |
+|---|---|---|---|
+| Contractor all-in per sq ft of footprint, excluding land, including septic | $150 ($385,000 on 2,560 sq ft; porch and mezzanine extra) | $160 for the 2,000 sq ft house **[S7]** | +7% |
+| Self-build per sq ft (materials plus subbed trades) | $99 ($252,000) | $107 for the house; $91 for the 2,800 sq ft v5 barndominium with its unfinished shop | +8% / −8% |
+| Saving from doing the work yourself | 34% all-in; 33.5% measured on the shell and trades | 33% when members do all doable work; 29% at 1,500 hours | within 1 to 5 points |
+| Materials and subbed work as a share of the shell price | 69% | 65% | −4 points |
+| Builder hours for the dried-in shell, slab prep, foam and interior framing | 421 hours of an experienced builder, solo | about 1,900 amateur hours for all doable work on the whole house | consistent: the shell at 1.3 to 1.5 times slower is 550 to 630 hours, leaving about 1,300 for drywall, finishes and helping the trades |
+| What an hour of the builder's labor was priced at | about $178 (the $74,943 labor counter over 420.5 hours) | $40 loaded crew rate | our dollar value of displaced labor is a wage, theirs is a bid price; the saving per member hour is probably nearer $100 than the $40 to $80 in the cost model **[J]** |
+
+Line items from the video worth carrying into the barndominium budget, Iowa 2024 prices: structure package materials $35,488 plus porch $12,155, windows $8,366, doors $15,693; slab 55 yd at $32,700 all-in; 3 in closed-cell foam on walls and ceiling $30,450; interior framing materials $12,788; septic (sand filter) $15,800; plumbing $10,000; electrical $14,000; HVAC $24,000 (five-head mini-split plus hydronic boiler); drywall $26,400; cabinets $13,884; permits about $1,500 rural. The v5 estimate of about $256,000 cash for 2,800 sq ft is within 10% of the Cedar's self-build figure for a slightly smaller but more finished building; carry $256,000 to $280,000 until a frame quote arrives.
+
+**What the cross-check changes.** The totals stand: our contractor and self-build figures are within 10% of a documented build once Texas 2026 against Iowa 2024 is allowed for, and the saving percentage is the same. Three things are revised:
+
+- **Value of a member hour.** The model priced displaced labor at a $40 loaded wage, so the saving came out at $40 to $80 an hour. The Cedar's counter prices the builder's labor at what a bid charges, about $178 an hour of skilled time. Allowing for amateurs at 1.3 to 1.5 times slower, a member hour on shell work is worth $125 to $135, on finishes $50 to $70, and about $80 across a whole house. The cost-model row now says so.
+- **Post-frame opens the shell to members.** The red-iron model hands the shell to the vendor's crew and leaves members $57,000 of doable work. The Cedar's shell, porch and interior framing were erected by one builder with a telehandler, $75,000 of bid labor in 421 hours. On a post-frame building members can take the shell too, about $105,000 of doable work at bid prices on a 2,000 sq ft house. The co-op total does not move much, because the Cedar's self-build figure still pays the slab and foam crews with their fee and 60% of the trades, but the hours are more useful and less of the build waits on a crane. Decide post-frame against red iron before the frame quotes; get both.
+- **Hours.** 421 skilled hours for a dried-in 2,560 sq ft shell with slab prep and interior framing is the first measured figure in the notes. It puts the whole-house amateur estimate at 1,400 to 1,900 hours rather than a flat 1,900.
+
+**Other points from the video worth carrying.** Rural subs charge more because of travel, so budget the trades above metro quotes. Permits ran about $1,500 in rural Iowa against $30,000 for patrons inside city limits; the county-versus-ETJ question in [[Jurisdiction and Feasibility]] is the same lever here. The septic type follows the perc test (conventional, sand filter or peat), which is why the model carries an aerobic system for the east side. Heating and cooling was a five-head mini-split plus a hydronic slab, $24,000 together. 3 in of closed-cell foam on walls and ceiling was $30,450, about $12 per sq ft of footprint, a subbed item on every build. The builders took 10 to 12 years of planning and remodelling before their own self-build and did 95% of it themselves; their first question for anyone is which trades they can honestly do. Their self-build removes the builder's labor only; concrete, foam, septic and 60% of the trades are still paid at pro rates.
 
 ## Steel frame kit, how the number was built
 

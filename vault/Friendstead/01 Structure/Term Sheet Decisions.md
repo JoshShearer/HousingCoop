@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: plan
-updated: 2026-10-23
+updated: 2026-10-24
 ---
 
 # Term Sheet Decisions
@@ -38,14 +38,15 @@ Share it as a cost-sharing project among people who will all do the work, not as
 - [ ] Build system: stick, SIP, steel kit or barndominium, and whether households may differ
 - [ ] Home size and finish range, and whether upgrades are individually funded
 - [ ] Barndominium scope, permitted use and who owns it in each phase
+- [ ] Covenants state affirmatively that solar, storage, rainwater systems, composting, drip irrigation and drought-resistant landscaping are permitted (Prop. Code §§ 202.007, 202.010 void bans anyway), and a board resolution allows the association's own solar on the barndominium, which the common-property exception would otherwise let it refuse (see [[Energy Incentives]])
 - [ ] Individual wells or a central system
 - [ ] Common tract size: 10 acres (bees) or 15 acres (grazing, wildlife) — see [[Agricultural Valuation]]
-- [ ] Voting thresholds: majority, two-thirds, unanimous
+- [ ] Voting thresholds: majority, two-thirds, unanimous (recommended 4, 5, 6 of 6 by subject: [[Governance and Exit#Who decides what before the deed]])
 - [ ] Parcel allocation method and the equalization baseline
-- [ ] Exit formula pre-plat, buyout timing, and the right of first refusal window
-- [ ] Rental, short-term rental, commercial use and animal rules for the declaration
-- [ ] Dispute ladder: mediation, arbitration, buy-sell
-- [ ] Who the member is: one spouse, both, or a trust; spousal joinder on the company agreement and buy-sell
+- [ ] Exit formula pre-plat, buyout timing, and the right of first refusal window ([[Governance and Exit#Leaving at each moment]])
+- [ ] Rental, short-term rental, commercial use and animal rules for the declaration ([[Governance and Exit#The HOA rules]])
+- [ ] Dispute ladder: mediation, arbitration, buy-sell ([[Governance and Exit#Deadlock]])
+- [ ] Who the member is: one spouse, both, or a trust; spousal joinder on the company agreement and buy-sell ([[Governance and Exit#Divorce and death]])
 - [ ] Personal guarantees on the land loan: pro rata or joint and several, and the contribution agreement among guarantors
 - [ ] Minerals: buy them, record a surface-use waiver, or walk
 - [ ] Homesite transfer as an in-kind distribution on plat, never a purchase contract
