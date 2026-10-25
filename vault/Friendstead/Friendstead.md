@@ -2,7 +2,7 @@
 tags: [friendstead, moc]
 type: map-of-content
 status: research
-updated: 2026-10-24
+updated: 2026-10-25
 ---
 
 # Friendstead
@@ -36,6 +36,7 @@ A friend-group self-build community on 20 to 40 acres near Austin, Texas. Resear
 | Where material prices have gone | [[Building Materials Price History]] |
 | Could members make their own SIPs | [[Self-Made SIP Panels]] |
 | Who can do what work | [[Member Labor Matrix]] |
+| How hours stay fair: skill, pacing, freeloaders | [[Labor Rules and Fairness]] |
 | Tax and code levers | [[Tax and Code Savings]] · [[Agricultural Valuation]] · [[Energy Incentives]] |
 | What can go wrong | [[Friendstead Risks]] |
 | Who decides, and how a household leaves | [[Governance and Exit]] |

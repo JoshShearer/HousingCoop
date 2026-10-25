@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: sources
-updated: 2026-10-24
+updated: 2026-10-25
 ---
 
 # Friendstead Sources
@@ -144,5 +144,6 @@ Every **[S#]** in the [[Friendstead]] notes resolves here. "Opened" means the pa
 | S133 | [DOZR, telehandler rentals Austin](https://dozr.com/rent/telehandler-reach-forklift/6000-lbs-40-42-ft/Austin-TX) and [Round Rock](https://dozr.com/rent/telehandler/6000-lbs-32-39-ft/Round_Rock-TX) | Opened 24 Oct 2026 (aggregator listings, undated) | 6,000 lb 40 to 42 ft: $500 to $724 a day, $1,412 to $1,882 a week; 32 to 39 ft: $471 to $541 a day, $1,294 to $1,398 a week; delivery, fuel and damage waiver extra |
 | S134 | [Offsite Builder, Ensuring Accurate Foundations](https://offsitebuilder.com/ensuring-accurate-foundations/) | Search excerpt 24 Oct 2026 | Panels fit within about 1/4 in; real problems beyond about 1 in out of square or 1 in out of level in 20 ft; open panels can conform to small slab irregularities, factory-sheathed panels cannot, so flatness matters most for sheathed shear walls |
 | S127 | [S-5!, Lovelock case study](https://www.s-5.com/case-studies/lovelock/) (vendor); [Neuhaus, Complete Guide to Solar Panels in Austin 2026](https://neuhausre.com/guides/solar-panels-guide-austin/); [NAHB Concrete Homes Technology Brief No. 5](https://www.nahb.org/-/media/NAHB/nahb-community/docs/councils/bsc/concrete-home-technology-briefs/IS304-concrete-homes-technology-brief-no5.pdf); [GBA, cost of a double-stud wall](https://www.greenbuildingadvisor.com/question/cost-of-a-double-stud-wall-with-dense-packed-cellulose) (Mar 2020) | Opened 24 Oct 2026 | Seam-clamp mounting $0.17 per W plus labor against $0.35 racking; Austin south-facing yield 1,400 to 1,600 kWh per kW a year; ICF 0.5 to 4% over wood frame with experienced crews, about $2 per sq ft less $0.75 HVAC offset; Montana bid double-stud $39,000 against 2x6 plus 4 in XPS $44,500 on 3,200 sq ft |
+| S135 | [7 CFR § 1944.403, Cornell LII](https://www.law.cornell.edu/cfr/text/7/1944.403); [Housing Assistance Council, What does affordable housing mean to you?](https://ruralhome.org/?p=3531) (6 Oct 2014) | Opened 25 Oct 2026 (ecfr.gov and rd.usda.gov refused the fetch) | Mutual self-help defined at § 1944.403(i) and (k): groups of usually four to ten families who complete construction by an exchange of labor with one another, each family contributing labor on each other's homes toward 65% of the listed tasks, a substitute only when the family is incapacitated. HAC: families build about 65% of the home, a minimum of 35 hours a week for 8 to 12 months, and no one moves in until all the homes are completed |
 
 Unsourced estimates in the notes are marked **[M]** (modeled) or **[J]** (judgment): the road cost, the legal package, the SIP and timber-frame contractor prices, build times and the ag productivity values.

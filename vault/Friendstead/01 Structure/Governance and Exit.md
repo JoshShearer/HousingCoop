@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: analysis
-updated: 2026-10-24
+updated: 2026-10-25
 ---
 
 # Governance and Exit
@@ -51,7 +51,7 @@ Texas default law is the opposite of what the departing household expects. A mem
 
 - **Put at formula.** A household may require the LLC to buy its interest at the cash it has contributed, less a discount of 15 to 25% **[J]**, paid over 24 months, subordinated to the land loan. The discount is the price of leaving the others short-handed with interest running, and it is what stops the put being used tactically.
 - **Hours delivered are not paid out.** Member labor is counted in hours only ([[Entity and Ownership Design#Labor without a tax bill]]). A departing household's hours bought it a place in the build it is now leaving; paying them out would give each hour a dollar value and collapse the no-barter position for everyone. The agreement says this in plain words so the departing household is not surprised. The group as a whole loses those hours, which is part of what the discount offsets.
-- **Expulsion for default only.** A household that misses a capital call runs the ladder in [[Friendstead Risks]] (cure period, carry at interest by the others, then forced buyout at formula less the top of the discount band). Expulsion for any other reason, including personality, is not available: the agreement names the capital-call default and a material breach of the labor rules as the only triggers, each with notice and a cure period.
+- **Expulsion for default only.** A household that misses a capital call runs the ladder in [[Friendstead Risks]] (cure period, carry at interest by the others, then forced buyout at formula less the top of the discount band). Expulsion for any other reason, including personality, is not available: the agreement names the capital-call default and a material breach of the labor rules as the only triggers, each with notice and a cure period. What counts as a material breach, and the pacing, notice and cure steps that come before it, are in [[Labor Rules and Fairness]].
 - **Replacement first, buyout second.** The departing household may bring a replacement who buys the interest at cost plus carrying costs; the LLC pays the formula only if no replacement is admitted within 90 days **[J]**. See "The replacement household" below for the vote.
 
 ### After the deed, before the house is finished
@@ -142,6 +142,7 @@ These are the items in [[Term Sheet Decisions]] this note answers with a recomme
 - Voting thresholds: 4, 5 and 6 of 6 by subject, one vote per household.
 - Exit before plat: put at cash contributed less 15 to 25%, over 24 months, hours not paid out; replacement first, 90 days.
 - Expulsion: capital-call default and material labor-rule breach only, with cure periods.
+- Labor fairness: flat hours with no skill weighting, quarterly pacing, a held-back final call apportioned by hours in brackets, and the labor-exhibit contents ([[Labor Rules and Fairness]]).
 - Who the member is: both spouses as one unit, one vote, joinder signed at formation.
 - Divorce and death triggers: member spouse, then LLC, then members; surviving spouse may elect in; no discount on death.
 - Admission of a replacement: 5 of 6 on objective financial criteria.

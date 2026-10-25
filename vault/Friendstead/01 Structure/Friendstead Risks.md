@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: analysis
-updated: 2026-10-24
+updated: 2026-10-25
 ---
 
 # Friendstead Risks
@@ -13,7 +13,7 @@ The four risks that can sink the project are feasibility, water, a member runnin
 | Tract cannot be platted into the planned lots | High without a feasibility period | Loss of earnest money and engineering fees, or a dead project after closing | 90 to 120 day feasibility contingency; engineer's preliminary lot, septic and road map before the option expires; walk-away threshold in the LLC agreement |
 | Water: dry or low-yield wells, groundwater district limits, or a central system crossing the public-water-system line | Medium east, high in the Hill Country | $20,000 to $30,000 per failed well; permanent operator duties | Test well during feasibility; individual wells by default; written rule that any central system stays under 15 connections and 25 residents |
 | Member cannot meet a capital call | High over 3 years with six households | Project stalls, or the others carry the shortfall | Ladder: 30-day cure, member loan at a set rate, dilution, then buyout at formula value; no new land spending until the call is funded |
-| Member cannot deliver labor (disability, transfer, divorce, new baby, loss of interest) | Near certain for at least one household | Others' homes slip; resentment | Hour target in the labor agreement; a shortfall raises that household's cash share of shared development by a set formula, settled at deed or from sale proceeds; no dollar price on hours and no payment between households |
+| Member cannot deliver labor (disability, transfer, divorce, new baby, loss of interest) | Near certain for at least one household | Others' homes slip; resentment | Hour target in the labor agreement, paced quarterly with notice and cure; a shortfall raises that household's cash share of shared development by brackets applied to a held-back final capital call, settled at the last final inspection or from sale proceeds; no dollar price on hours and no payment between households ([[Labor Rules and Fairness]]) |
 | Injury on a member work crew | Medium over 10,000 crew hours | Medical costs, a lawsuit between friends, loss of the project | Occupational accident or workers' comp through the LLC, general liability, builder's risk, written safety rules; broker engaged before the first work day. Every document states that the LLC is not an employer and members work as owners, not under a contract of hire, so Labor Code § 406.033 (nonsubscriber loses its defences; employee's pre-injury waiver void) never applies; see [[Entity and Ownership Design#Liability protection for the properties]] |
 | LLC holds title to a home a member is living in | Certain in Phase 1 | No homestead exemption or creditor protection; no conventional mortgage; lender refuses owner-as-contractor on homestead | Deed lots as soon as the plat records; builder of record for each home; homestead filed the year of the deed |
 | Cost overrun of 30% on shared work | Medium | $35,000 more per household | 10% contingency built in; two-thirds vote for spending above budget; equalization credits if one lot's site work costs more |

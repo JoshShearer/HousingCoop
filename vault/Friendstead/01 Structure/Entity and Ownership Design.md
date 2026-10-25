@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: analysis
-updated: 2026-10-24
+updated: 2026-10-25
 ---
 
 # Entity and Ownership Design
@@ -55,6 +55,7 @@ Labor is counted in hours and never priced in dollars, so no household ever pays
 3. A household short of its target pays a larger cash share of shared development (road, well, barndominium) by a formula in the company agreement. That is a capital contribution to the household's own entity, not payment for services, and it lowers everyone else's call.
 4. Work on the common tract after plat is volunteer work for the POA.
 5. Enforcement stays where it already is: the capital-call ladder and the lien contract under [Prop. Code § 53.254](https://statutes.capitol.texas.gov/Docs/PR/htm/PR.53.htm#53.254).
+6. Skill is handled by assignment and training, never by weighting an hour; freeloading by quarterly pacing and a held-back final capital call apportioned by hours in brackets. The rules and the labor-exhibit outline are in [[Labor Rules and Fairness]].
 
 **The alternative (Path A).** The LLC builds all six houses with member labor and distributes each finished lot and house in kind, generally tax-free (IRC § 731) with carryover basis (§ 732). The sweat equity sits as unrealized gain inside a homestead, and § 121 excludes up to $500,000 of that gain for a couple on a sale after two years of residence. Cleaner on tax, but it needs one construction loan for six houses with member guarantees and delays every homestead until completion. Kept as the fallback if lenders will not finance owner-builders.
 

@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: plan
-updated: 2026-10-24
+updated: 2026-10-25
 ---
 
 # Term Sheet Decisions
@@ -34,7 +34,8 @@ Share it as a cost-sharing project among people who will all do the work, not as
 - [ ] Six lots or seven, with the seventh sold to fund the road; seller financing as a term of every offer; tract scoring for existing improvements (see [[Further Cost Levers]])
 - [ ] Target counties, and whether the 10-acre no-plat path is on the table
 - [ ] Cash each household can contribute at closing, and the capital-call ladder
-- [ ] Hour target per household (1,500 or 3,000 hours), the tasks that count, and the formula by which a shortfall raises a household's cash share of shared costs (hours only, no dollar price; see [[Entity and Ownership Design#Labor without a tax bill]])
+- [ ] Hour target per household (1,500 or 3,000 hours), the household factor for one-adult households, the tasks that count, quarterly pacing, and the hold-back of the last 15 to 20% of the shared pot apportioned by hours in brackets (hours only, no dollar price, no skill weighting; see [[Labor Rules and Fairness]] and [[Entity and Ownership Design#Labor without a tax bill]])
+- [ ] Build sequence rule (all shells before any interior, lot draw, commitment to the last final inspection) and the ledger, safety-strike, shared-asset and conduct rules for the labor exhibit ([[Labor Rules and Fairness]])
 - [ ] Build system: stick, SIP, steel kit or barndominium, and whether households may differ
 - [ ] Home size and finish range, and whether upgrades are individually funded
 - [ ] Barndominium scope, permitted use and who owns it in each phase
