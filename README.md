@@ -4,7 +4,7 @@ Planning repo for a cooperative self-build community near Austin, TX.
 
 ## Documents (Claude Docs)
 - Friendstead Structure and Market Analysis (2026-10-22), two tabs: "Structure and market" and "Build systems, labor and tax": https://claude.ai/artifact/GPnPpzM6q64GkTv3kwCPKM
-- Zero Energy Passive Design Feasibility for Friendstead (2026-10-24): ZERH-grade envelope recommended, Phius optional, co-op solar economics after the 2025 credit sunset: https://claude.ai/artifact/6EXUtrMb4YmZxhAid7Ex2b
+- Zero Energy Passive Design Feasibility for Friendstead (2026-10-24), three tabs: "Feasibility" (ZERH-grade envelope recommended, Phius optional, co-op solar economics after the 2025 credit sunset), "Cost-effective design" (cheapest net-zero form, build system and package for the member homes) and "Prefab walls" (factory wall panels buy back member hours at $15 to $30 an hour but save no cash; exterior walls yes, interior as an option): https://claude.ai/artifact/6EXUtrMb4YmZxhAid7Ex2b
 
 ## Walkthrough
 - Barndominium v5 walkthrough (Three.js, from the IFC): https://claude.ai/artifact/HsUtQdhz5YpM2NvhuqUwLT

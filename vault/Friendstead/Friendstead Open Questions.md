@@ -17,7 +17,7 @@ Assumptions the numbers rest on, and the answers Josh gave on 22 Oct 2026. Part 
 | Lot size | 2 to 5 acres as the county allows | See [[Jurisdiction and Feasibility]] |
 | Home | 2,000 sq ft, standard finish; stick-built is the base | See [[Build Systems Compared]] |
 | Occupancy | All primary residences | Homestead and the appraisal cap on every lot after the deed |
-| Shared barndominium | 2,400 sq ft, permitted residential | Phase 1 housing, later workshop and community building |
+| Shared barndominium | 3,500 sq ft on two floors (56 x 40 ft slab, 20 ft eave), dried-in shell with rough interiors, permitted residential | Phase 1 housing, later workshop and community building |
 | Road | 2,000 linear feet, paved if the county requires it | A 30-acre tract is roughly 1,100 by 1,200 feet |
 | Member labor | Framing, siding, roofing, insulation, drywall, paint, flooring, trim, landscaping, cleanup; no trade licenses | Licensed trades hired, except an owner on their own house |
 | Financing | Land bought with 35% down on a land loan; homes built with cash plus construction loans after the deed | Fannie and Freddie do not buy vacant-land loans; land loans need 20 to 50% down **[S42]** |

@@ -27,7 +27,7 @@ Girts and purlins cross the insulation; the foam-only barndominium in [[Energy C
 
 ## Cost and payback
 
-Figures are model estimates **[M]** on the $256,000 v5 estimate; a co-op all-in retail rate of 14 to 15 cents is assumed.
+Figures are model estimates **[M]** on the $256,000 v5 estimate (the v6 shell carries $234,000; its 2 in wall and 3 in roof foam is the code-minimum row below); a co-op all-in retail rate of 14 to 15 cents is assumed.
 
 | Step | Added cost | Annual kWh | Saving a year | Simple payback |
 |---|---|---|---|---|

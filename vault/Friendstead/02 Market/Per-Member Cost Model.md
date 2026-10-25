@@ -41,14 +41,14 @@ A smaller or simpler home moves a tier more than the lot does: a 1,600 sq ft bar
 
 ## What each household puts in, by headcount
 
-Most of the shared pot does not shrink when fewer households join: the 10-acre common tract ($280,000 at $28,000 an acre), the paved road ($150,000), the electric backbone ($60,000), engineering and plat ($80,000) and legal ($50,000), plus 10% contingency on the development items. With the barndominium ($250,000 plus $25,000 septic) the pot is about $955,000; without it about $655,000 **[M]**. Each household then adds its own lot, utilities and home, about $385,000 at 1,500 hours of own-home labor in the base case.
+Most of the shared pot does not shrink when fewer households join: the 10-acre common tract ($280,000 at $28,000 an acre), the paved road ($150,000), the electric backbone ($60,000), engineering and plat ($80,000) and legal ($50,000), plus 10% contingency on the development items. With the barndominium ($234,000 for the v6 two-storey dried-in shell with rough interiors, plus $25,000 septic) the pot is about $939,000; without it about $655,000 **[M]**. Each household then adds its own lot, utilities and home, about $385,000 at 1,500 hours of own-home labor in the base case.
 
 | Households | Shared pot each, with barndo | Shared pot each, without | Cash at pre-formation | Cash at land closing (35% down) | Shared-work hours each |
 |---|---|---|---|---|---|
-| 3 | $319,000 | $218,000 | $20,000 | $100,000 | 1,000 |
-| 4 | $239,000 | $164,000 | $15,000 | $75,000 | 750 |
-| 6 | $159,000 | $109,000 | $10,000 | $50,000 | 500 |
-| 8 | $120,000 | $82,000 | $7,500 | $37,500 | 375 |
+| 3 | $313,000 | $218,000 | $20,000 | $100,000 | 1,000 |
+| 4 | $235,000 | $164,000 | $15,000 | $75,000 | 750 |
+| 6 | $157,000 | $109,000 | $10,000 | $50,000 | 500 |
+| 8 | $117,000 | $82,000 | $7,500 | $37,500 | 375 |
 
 How to read it **[M]**:
 
@@ -60,7 +60,7 @@ How to read it **[M]**:
 
 ## What the barndominium is really buying
 
-The shared building costs each household about $46,000. Six households renting during an 18-month build at $1,800 a month would spend about $194,000 in total, or $32,000 each, so the barndo nearly pays for itself in avoided rent and then remains as a workshop and community building **[M]**. If the group will not live on site during construction, drop it to a $100,000 shell and the per-household total falls by about $25,000.
+The shared building costs each household about $43,000 including its septic. Six households renting during an 18-month build at $1,800 a month would spend about $194,000 in total, or $32,000 each, so the barndo nearly pays for itself in avoided rent and then remains as a workshop and community building **[M]**. The v6 design (24 Oct 2026) is the cheapest functional version: a 56 x 40 ft post-frame shell with a 20 ft eave, two 12 x 12 ft insulated shop doors, closed-cell foam on the whole shell, a member-built second floor over the east 32 ft and temporary 2x4 rooms, about 3,500 sq ft of floor; about $234,000 all-in to occupy, $188,000 for the foamed shell with floor and rooms, $131,000 as a bare dry shell (itemised in `designs/barndominium/ESTIMATE-v6.md`, [[Build Systems Compared#What the cross-check changes]]). If the group will not live on site during construction, the dry shell alone cuts the per-household total by about $17,000.
 
 ## Sensitivity
 

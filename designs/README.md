@@ -27,17 +27,19 @@ designs/
 ## Running a generator
 
 ```
-~/.local/bin/blender -b --python designs/barndominium/make_barndominium.py            # writes barndominium-v5.ifc, .blend and exports/barndominium-v5-plan.json
+~/.local/bin/blender -b --python designs/barndominium/make_barndominium.py            # writes barndominium-v6.ifc, .blend and exports/barndominium-v6-plan.json
 ~/.local/bin/blender -b --python designs/barndominium/make_barndominium.py -- barndominium-v6
-uv run --with matplotlib python -I designs/draw_plan.py designs/barndominium/exports/barndominium-v5-plan.json   # dimensioned 2D plan PNG
-~/.local/bin/blender -b designs/barndominium/barndominium-v5.blend --python designs/export_glb.py -- /tmp/barndominium-v5.glb   # coloured GLB for the web
-python3 designs/make_walkthrough.py designs/barndominium/exports/barndominium-v5-plan.json /tmp/barndominium-v5.glb          # first-person walkthrough page
+uv run --with matplotlib python -I designs/draw_plan.py designs/barndominium/exports/barndominium-v6-plan.json   # dimensioned 2D plan PNG
+uv run --with matplotlib python -I designs/draw_plan.py designs/barndominium/exports/barndominium-v6-plan-upper.json   # second-floor plan
+~/.local/bin/blender -b designs/barndominium/barndominium-v6.blend --python designs/render_massing.py -- designs/barndominium/exports/barndominium-v6-massing.png   # isometric massing render
+~/.local/bin/blender -b designs/barndominium/barndominium-v6.blend --python designs/export_glb.py -- /tmp/barndominium-v6.glb   # coloured GLB for the web
+python3 designs/make_walkthrough.py designs/barndominium/exports/barndominium-v6-plan.json /tmp/barndominium-v6.glb          # first-person walkthrough page
 ```
 
-Open the result with `~/.local/bin/blender designs/barndominium/barndominium-v5.blend`, or File > Open IFC Project in Bonsai.
+Open the result with `~/.local/bin/blender designs/barndominium/barndominium-v6.blend`, or File > Open IFC Project in Bonsai.
 
 ## Buildings
 
 | Building | Status | Note |
 |---|---|---|
-| [Barndominium](barndominium/BRIEF.md) | v5 plan | 70 x 40 ft, 20 ft shop bay at the west gable, 50 x 40 house with a shared wet core and a 25 ft vaulted great room, south porch, cool white exterior |
+| [Barndominium](barndominium/BRIEF.md) | v6 shell | 56 x 40 ft, 20 ft eave, two-storey house block with a member-built wood floor, 24 ft shop bay with two 12 x 12 insulated doors, foam, temporary rooms, no porch; about 3,500 sq ft; v5 (70 x 40 finished single storey with porch and vault) kept as the alternative |

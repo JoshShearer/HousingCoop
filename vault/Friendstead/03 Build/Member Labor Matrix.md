@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: reference
-updated: 2026-10-23
+updated: 2026-10-24
 ---
 
 # Member Labor Matrix
@@ -16,7 +16,7 @@ Texas has no state license for general contractors or carpenters, and the owner-
 | Well | Lot utility | No | Licensed water well driller and pump installer | State license; groundwater district permit |
 | Septic | Lot utility | A homeowner may install their own conventional system after a licensed site evaluation; aerobic units usually need a Class II installer | Site evaluator, installer for aerobic, two-year maintenance contract | 30 TAC 285 and the county order |
 | Foundation | 10.5% | Forms, rebar, vapor barrier, finishing help | Concrete pump and finishing crew; engineer's slab design | Timing and skill; a bad slab is unfixable |
-| Framing | 16.6% | Yes, with one experienced lead; a pre-cut steel kit removes cutting and layout but needs screw guns, snips and a lift for trusses | Crane and panel or frame crew for SIP and timber frame | Members' largest saving on stick-built and the steel kit |
+| Framing | 16.6% | Yes, with one experienced lead; exterior walls as plant panels remove layout and cutting and leave members setting, plumbing, bracing and taping ([[Prefab Wall Panels]]); a pre-cut steel kit does the same but needs screw guns, snips and a lift for trusses | Crane and panel or frame crew for SIP and timber frame | Members' largest saving on stick-built and the steel kit |
 | Roofing | In exterior 13.4% | Metal roof, yes | Steep or complex roofs | Fall protection and insurance |
 | Windows, doors, siding, exterior trim | In exterior 13.4% | Yes | None | Standard member work |
 | Electrical | In rough-ins 19.2% | Only the owner on their own home, Occupations Code 1305.003 exemption **[S31]**; utility sets the meter | Licensed electrician for everyone else's house and the service entrance | License; lender and insurer may require licensed sign-off |

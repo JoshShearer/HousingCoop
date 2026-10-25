@@ -40,7 +40,7 @@ for name, x0, y0, x1, y1 in plan.get("wet_core", []):
 if plan.get("trench"):
     (tx0, ty0), (tx1, ty1) = plan["trench"]
     ax.plot([ft(tx0), ft(tx1)], [ft(ty0), ft(ty1)], color="#1baf7a", lw=2.2, ls=(0, (6, 3)), zorder=0.5)
-    ax.text(ft(tx1) + 0.6, ft(ty1), f"sewer trench {ft(tx1 - tx0):.0f}'", color="#1baf7a", fontsize=8, va="center")
+    ax.text(ft(tx1) + 0.6, ft(ty1), f"sewer trench {ft(((tx1 - tx0) ** 2 + (ty1 - ty0) ** 2) ** 0.5):.0f}'", color="#1baf7a", fontsize=8, va="center")
 if plan.get("gable"):
     gx0, gy0, gx1, gy1, glabel = plan["gable"]
     ax.add_patch(Rectangle((ft(gx0), ft(gy0)), ft(gx1 - gx0), ft(gy1 - gy0), fill=False, ls=(0, (4, 3)), lw=1, edgecolor=INK, zorder=1))
@@ -62,6 +62,6 @@ def dim(x0, x1, y, label, vertical=False):
 for x0, x1, off, label, vert in plan.get("dims", []): dim(x0, x1, off, label, vertical=vert)
 ax.annotate("N", (L + 4, W - 2), (L + 4, W - 6), ha="center", fontsize=10, color=INK, arrowprops=dict(arrowstyle="-|>", color=INK, lw=1))
 ax.set_xlim(-5, L + 7); ax.set_ylim(-PD - 5, W + 5); ax.set_aspect("equal"); ax.axis("off")
-ax.set_title(f"{src.stem.replace('-plan', '')}: floor plan, {P['eave_ft']:.0f} ft walls, {L:.0f} x {W:.0f} ft plus {PD:.0f} ft south porch", loc="left", fontsize=12, color=INK, pad=12)
-fig.text(0.01, 0.01, "Massing model, not a construction drawing. Dimensions are to outside faces; doors are 3 ft, windows 4 ft, interior walls 4.5 in. Green: wet core on one sewer trench. Generated from the IFC parameters.", fontsize=7.5, color=MUTED)
+ax.set_title(plan.get("title") or f"{src.stem.replace('-plan', '')}: floor plan, {P['eave_ft']:.0f} ft walls, {L:.0f} x {W:.0f} ft" + (f" plus {PD:.0f} ft south porch" if PD else ""), loc="left", fontsize=12, color=INK, pad=12)
+fig.text(0.01, 0.01, "Massing model, not a construction drawing. Dimensions are to outside faces; doors are 3 ft, interior walls 4.5 in. Green: wet core on one sewer trench. Generated from the IFC parameters.", fontsize=7.5, color=MUTED)
 out = src.with_name(src.stem + ".png"); fig.savefig(out, bbox_inches="tight", facecolor=SURFACE); print("wrote", out)
