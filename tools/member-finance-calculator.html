@@ -1,0 +1,404 @@
+<title>Friendstead Member Finance Calculator</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a fixed-width input rail on the left, results on the right; stacks to one column under 900px. */
+:root{
+  --bg:#f5f7f4; --panel:#ffffff; --ink:#1c2422; --muted:#5b6765; --line:#d9e0dc;
+  --accent:#1f6f6b; --accent-ink:#ffffff; --tile:#e9f1ee;
+  --good:#2f7d4f; --good-bg:#e3f2e8; --warn:#9a6a12; --warn-bg:#f8efd9; --bad:#a53a2e; --bad-bg:#f8e3df;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131918; --panel:#1b2322; --ink:#e6ebe8; --muted:#9aa6a2; --line:#2e3937;
+  --accent:#5fbcb5; --accent-ink:#0f1716; --tile:#20302d;
+  --good:#7fcf9a; --good-bg:#1d3326; --warn:#e2b45a; --warn-bg:#3a2f16; --bad:#f08b7d; --bad-bg:#3d201b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#131918; --panel:#1b2322; --ink:#e6ebe8; --muted:#9aa6a2; --line:#2e3937;
+  --accent:#5fbcb5; --accent-ink:#0f1716; --tile:#20302d;
+  --good:#7fcf9a; --good-bg:#1d3326; --warn:#e2b45a; --warn-bg:#3a2f16; --bad:#f08b7d; --bad-bg:#3d201b; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--sans);margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:24px}
+header h1{font-size:1.6rem;font-weight:600;margin:0 0 4px;text-wrap:balance}
+header p{margin:0;color:var(--muted);max-width:70ch}
+.cols{display:grid;grid-template-columns:360px minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
+.rail{display:grid;gap:14px;min-width:0}
+fieldset{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:12px 14px 14px;margin:0;min-width:0}
+legend{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0 6px;font-weight:600}
+.row{display:grid;grid-template-columns:1fr 120px;gap:10px;align-items:center;padding:4px 0}
+.row label{font-size:.9rem}
+.row small{display:block;color:var(--muted);font-size:.76rem;line-height:1.3}
+input[type=number],select{width:100%;font:14px var(--mono);padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+input[type=number]:focus,select:focus,button:focus,input[type=checkbox]:focus{outline:2px solid var(--accent);outline-offset:1px}
+.check{display:flex;gap:8px;align-items:center;padding:6px 0;font-size:.9rem}
+.presets{display:flex;gap:6px;flex-wrap:wrap;padding:6px 0 2px}
+button.preset{font:13px var(--sans);padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);cursor:pointer}
+button.preset:hover{border-color:var(--accent)}
+.results{display:grid;gap:20px;min-width:0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.tile{background:var(--tile);border-radius:8px;padding:12px 14px}
+.tile .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tile .v{font:500 1.5rem/1.2 var(--mono);font-variant-numeric:tabular-nums;margin-top:4px}
+.tile .s{font-size:.8rem;color:var(--muted);margin-top:4px}
+section.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;min-width:0}
+section.card h2{font-size:1.05rem;font-weight:600;margin:0 0 4px}
+section.card p.lead{margin:0 0 10px;color:var(--muted);font-size:.9rem;max-width:75ch}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:600;border-top:2px solid var(--line)}
+td .note{display:block;color:var(--muted);font-size:.78rem;font-family:var(--sans)}
+.verdicts{display:grid;gap:8px;margin-top:10px}
+.verdict{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;padding:10px 12px;border-radius:8px;background:var(--tile)}
+.pill{font:600 .72rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border-radius:999px;white-space:nowrap;margin-top:2px}
+.pill.good{background:var(--good-bg);color:var(--good)}
+.pill.warn{background:var(--warn-bg);color:var(--warn)}
+.pill.bad{background:var(--bad-bg);color:var(--bad)}
+.verdict b{display:block;font-weight:600}
+.verdict span{color:var(--muted);font-size:.86rem}
+.candidate{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.candidate .row{grid-template-columns:1fr}
+details{border-top:1px solid var(--line);padding-top:8px;margin-top:8px}
+summary{cursor:pointer;font-weight:500;font-size:.9rem}
+details p,details li{color:var(--muted);font-size:.86rem}
+details ul{padding-left:18px;margin:6px 0}
+footer{color:var(--muted);font-size:.8rem;max-width:80ch}
+@media (prefers-reduced-motion:no-preference){.tile .v{transition:color .2s}}
+</style>
+
+<div class="wrap">
+<header>
+  <h1>Friendstead Member Finance Calculator</h1>
+  <p>What a household must have in cash, income and credit to join the self-build, at any tract price, headcount and lending terms. Defaults are the 24 Oct 2026 east-of-Austin model; all outputs are modelled figures, not quotes, and nothing here is lending or legal advice.</p>
+</header>
+
+<div class="cols">
+<div class="rail">
+
+<fieldset>
+  <legend>Tract and headcount</legend>
+  <div class="row"><label for="acres">Tract size<small>acres</small></label><input type="number" id="acres" value="30" min="5" step="1"></div>
+  <div class="row"><label for="ppa">Price per acre<small>$ asking, east side ~$28,000</small></label><input type="number" id="ppa" value="28000" min="1000" step="500"></div>
+  <div class="row"><label for="common">Common tract<small>acres held by the association</small></label><input type="number" id="common" value="10" min="0" step="1"></div>
+  <div class="row"><label for="nFinal">Households at full strength</label><input type="number" id="nFinal" value="6" min="2" max="12" step="1"></div>
+  <div class="row"><label for="nNow">Founding households<small>who close on the land</small></label><input type="number" id="nNow" value="3" min="1" max="12" step="1"></div>
+  <div class="row"><label for="monthsFull">Months until full<small>from closing to the last seat filled</small></label><input type="number" id="monthsFull" value="18" min="0" step="1"></div>
+</fieldset>
+
+<fieldset>
+  <legend>Land financing</legend>
+  <div class="presets">
+    <button type="button" class="preset" data-down="35" data-rate="7.75">Bank or Farm Credit</button>
+    <button type="button" class="preset" data-down="15" data-rate="7.0">Seller carry</button>
+    <button type="button" class="preset" data-down="100" data-rate="0">All cash</button>
+  </div>
+  <div class="row"><label for="down">Down payment<small>% of price</small></label><input type="number" id="down" value="35" min="0" max="100" step="1"></div>
+  <div class="row"><label for="landRate">Interest rate<small>% a year, interest carried until release</small></label><input type="number" id="landRate" value="7.75" min="0" max="20" step="0.05"></div>
+  <div class="row"><label for="closingPct">Closing costs<small>% of price</small></label><input type="number" id="closingPct" value="2" min="0" max="10" step="0.25"></div>
+  <div class="row"><label for="landTI">Land taxes and insurance<small>$ a year, ag valuation assumed</small></label><input type="number" id="landTI" value="3000" min="0" step="250"></div>
+  <div class="row"><label for="monthsDeed">Months from closing to deed<small>plat recorded, lots released</small></label><input type="number" id="monthsDeed" value="12" min="1" step="1"></div>
+</fieldset>
+
+<fieldset>
+  <legend>Shared development, whole project</legend>
+  <div class="row"><label for="preform">Pre-formation<small>attorney, engineer, test well, option fee</small></label><input type="number" id="preform" value="60000" min="0" step="1000"></div>
+  <div class="row"><label for="engineering">Engineering and plat</label><input type="number" id="engineering" value="80000" min="0" step="1000"></div>
+  <div class="row"><label for="legal">Legal<small>company agreement, declaration, closings</small></label><input type="number" id="legal" value="50000" min="0" step="1000"></div>
+  <div class="row"><label for="road">Road<small>paved to county standard</small></label><input type="number" id="road" value="150000" min="0" step="5000"></div>
+  <div class="row"><label for="electric">Electric backbone</label><input type="number" id="electric" value="60000" min="0" step="5000"></div>
+  <div class="row"><label for="barndo">Barndominium<small>v6 dried-in shell, rough interior</small></label><input type="number" id="barndo" value="234000" min="0" step="5000"></div>
+  <div class="row"><label for="septic">Barndominium septic</label><input type="number" id="septic" value="25000" min="0" step="1000"></div>
+  <div class="row"><label for="contingency">Contingency<small>% on development items</small></label><input type="number" id="contingency" value="10" min="0" max="50" step="1"></div>
+  <label class="check"><input type="checkbox" id="includeBarndo" checked> Build the barndominium</label>
+  <label class="check"><input type="checkbox" id="foundersPhaseB"> Founders fund road, electric and barndominium before the group is full</label>
+</fieldset>
+
+<fieldset>
+  <legend>Each household's home</legend>
+  <div class="row"><label for="sqft">Home size<small>sq ft</small></label><input type="number" id="sqft" value="2000" min="600" step="50"></div>
+  <div class="row"><label for="psf">Cost per sq ft<small>$ owner-built; 168 at 1,500 hours, 145 at 3,000</small></label><input type="number" id="psf" value="168" min="50" step="1"></div>
+  <div class="row"><label for="utilities">Lot utilities<small>well, septic, electric drop, driveway</small></label><input type="number" id="utilities" value="50000" min="0" step="1000"></div>
+  <div class="row"><label for="soft">Soft costs<small>plans, permits, builder's risk, contingency</small></label><input type="number" id="soft" value="30000" min="0" step="1000"></div>
+</fieldset>
+
+<fieldset>
+  <legend>Construction lending terms</legend>
+  <div class="row"><label for="equity">Equity required<small>% of appraised value</small></label><input type="number" id="equity" value="25" min="0" max="60" step="1"></div>
+  <div class="row"><label for="uplift">Appraisal over cost<small>% sweat-equity uplift, 0 is conservative</small></label><input type="number" id="uplift" value="0" min="-20" max="40" step="1"></div>
+  <div class="row"><label for="conRate">Rate<small>% a year, construction-to-permanent</small></label><input type="number" id="conRate" value="7.0" min="0" max="20" step="0.05"></div>
+  <div class="row"><label for="term">Term<small>years</small></label><input type="number" id="term" value="30" min="5" max="40" step="1"></div>
+  <div class="row"><label for="ti">Property tax and insurance<small>% of value a year</small></label><input type="number" id="ti" value="2.2" min="0" max="6" step="0.1"></div>
+  <div class="row"><label for="dti">Maximum debt-to-income<small>% of gross income</small></label><input type="number" id="dti" value="43" min="20" max="60" step="1"></div>
+  <div class="row"><label for="reserves">Reserves<small>months of payment after closing</small></label><input type="number" id="reserves" value="6" min="0" max="24" step="1"></div>
+  <div class="row"><label for="score">Credit score floor</label><input type="number" id="score" value="680" min="500" max="850" step="5"></div>
+  <label class="check"><input type="checkbox" id="rollLand" checked> Roll the lot's land-loan payoff into the construction loan</label>
+  <label class="check"><input type="checkbox" id="countGuarantee" checked> Lender counts the land-loan guarantee in each member's debt-to-income</label>
+</fieldset>
+
+</div>
+
+<div class="results">
+
+<div class="tiles">
+  <div class="tile"><div class="k">Cash before deed</div><div class="v" id="tCash">–</div><div class="s">per household at full strength, over <span id="tCashMonths">–</span> months</div></div>
+  <div class="tile"><div class="k">Minimum liquid cash</div><div class="v" id="tLiquid">–</div><div class="s">cash before deed plus extra down payment and reserves</div></div>
+  <div class="tile"><div class="k">Household income needed</div><div class="v" id="tIncome">–</div><div class="s">gross, with no other debt, at <span id="tDti">–</span>% debt-to-income</div></div>
+  <div class="tile"><div class="k">Credit floor</div><div class="v" id="tScore">–</div><div class="s">and a guarantee of <span id="tGuar">–</span> on the land loan, pro rata</div></div>
+</div>
+
+<section class="card">
+  <h2>Cash timeline per household, full strength</h2>
+  <p class="lead">What a household at <span id="nFinalEcho">6</span> households pays, in order. The land in the common tract is inside the land loan, so it does not appear again in the capital calls.</p>
+  <div class="tbl"><table id="timeline"></table></div>
+</section>
+
+<section class="card">
+  <h2>Construction loan at the deed</h2>
+  <p class="lead">Each household qualifies alone once its lot is deeded. The lot's equity counts toward the lender's requirement; the gap is cash.</p>
+  <div class="tbl"><table id="loan"></table></div>
+</section>
+
+<section class="card">
+  <h2>Founders: <span id="nNowEcho">3</span> of <span id="nFinalEcho2">6</span></h2>
+  <p class="lead">What the households that close on the land carry until the rest join, and what comes back when seats are sold at cost plus carrying costs.</p>
+  <div class="tbl"><table id="founders"></table></div>
+</section>
+
+<section class="card">
+  <h2>Candidate check</h2>
+  <p class="lead">Enter a household's position and the role they would take. The test applies the figures above, with their own debt in the income line.</p>
+  <div class="candidate">
+    <div class="row"><label for="cCash">Cash on hand<small>$ liquid, not retirement</small></label><input type="number" id="cCash" value="250000" min="0" step="5000"></div>
+    <div class="row"><label for="cIncome">Household gross income<small>$ a year</small></label><input type="number" id="cIncome" value="140000" min="0" step="1000"></div>
+    <div class="row"><label for="cDebt">Other monthly debt<small>$ cars, student loans, cards</small></label><input type="number" id="cDebt" value="600" min="0" step="50"></div>
+    <div class="row"><label for="cScore">Credit score<small>lowest of the borrowers</small></label><input type="number" id="cScore" value="720" min="300" max="850" step="1"></div>
+    <div class="row"><label for="cRole">Role</label><select id="cRole"><option value="founder">Founder, closes on the land</option><option value="later">Later member, buys a seat</option></select></div>
+  </div>
+  <div class="verdicts" id="verdicts"></div>
+</section>
+
+<section class="card">
+  <h2>By headcount</h2>
+  <p class="lead">The same tract and terms with more or fewer households. Three households on lots over 10 acres can skip the plat and the county road standard, which this table does not model.</p>
+  <div class="tbl"><table id="headcount"></table></div>
+</section>
+
+<section class="card">
+  <h2>How it is computed</h2>
+  <details open><summary>Method and assumptions</summary>
+    <ul>
+      <li>Land loan = tract price less the down payment. Interest is carried at the stated rate until the lots are released; each lot's release payoff is the loan divided by the final headcount.</li>
+      <li>Capital calls = (engineering, legal, road, electric, barndominium, septic) plus contingency, divided by households. Pre-formation money is at risk if feasibility fails.</li>
+      <li>Project value at cost = the household's land at cost (its lot plus its share of the common tract) + home + utilities + soft costs. Appraised value applies the uplift. The lender advances at most (100% less equity) of appraised value; whatever the household's land equity does not cover is extra cash down.</li>
+      <li>Payment = principal and interest on the loan over the term plus taxes and insurance on value. Income needed = 12 × (payment + other debt, plus the household's share of land-loan interest if the lender counts the guarantee) ÷ the debt-to-income cap.</li>
+      <li>Founders split pre-formation, closing, Phase A calls (engineering and legal) and the land carry among themselves until the group is full; Phase B (road, electric, barndominium) only if the box is ticked. Refund = founder outlay less the same items at the full-strength share, assuming later seats are sold at cost plus carrying costs.</li>
+      <li>Guarantee exposure is shown pro rata and joint and several. Most land lenders require joint and several guarantees from every member of an LLC borrower.</li>
+      <li>Defaults: Friendstead Per-Member Cost Model (24 Oct 2026); land-loan terms from Herring Bank's Texas land-loan guide (35 to 50% down on raw land, about 7.5 to 7.75%); construction terms are typical 2026 ranges from lender guides (20 to 30% equity, 680 score, 43 to 45% debt-to-income, six months reserves). Confirm every lending figure with a lender in writing.</li>
+    </ul>
+  </details>
+</section>
+
+<footer>Texas lenders generally refuse the homeowner as contractor on homestead property, so each household also needs a builder of record or an owner-builder lender. Fannie Mae and Freddie Mac do not buy land loans, and a take-out mortgage on a private road needs a recorded road maintenance agreement. Those are gates the calculator cannot score.</footer>
+
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const num = id => { const v = parseFloat($(id).value); return Number.isFinite(v) ? v : 0; };
+  const fmt = n => (n < 0 ? "−" : "") + "$" + Math.round(Math.abs(n)).toLocaleString("en-US");
+  const fmtK = n => (n < 0 ? "−" : "") + "$" + Math.round(Math.abs(n)/1000).toLocaleString("en-US") + "k";
+  const pmt = (P, rate, years) => { const r = rate/100/12, n = years*12; if (P <= 0) return 0; if (r === 0) return P/n; return P*r/(1-Math.pow(1+r,-n)); };
+
+  function readInputs(){
+    const I = {};
+    ["acres","ppa","common","nFinal","nNow","monthsFull","down","landRate","closingPct","landTI","monthsDeed",
+     "preform","engineering","legal","road","electric","barndo","septic","contingency",
+     "sqft","psf","utilities","soft","equity","uplift","conRate","term","ti","dti","reserves","score",
+     "cCash","cIncome","cDebt","cScore"].forEach(k => I[k] = num(k));
+    I.includeBarndo = $("includeBarndo").checked; I.foundersPhaseB = $("foundersPhaseB").checked;
+    I.rollLand = $("rollLand").checked; I.countGuarantee = $("countGuarantee").checked; I.cRole = $("cRole").value;
+    I.nFinal = Math.max(2, Math.round(I.nFinal)); I.nNow = Math.min(I.nFinal, Math.max(1, Math.round(I.nNow)));
+    return I;
+  }
+
+  // Everything for one household at headcount N, given the inputs.
+  function model(I, N){
+    const tract = I.acres * I.ppa;
+    const closingCosts = tract * I.closingPct/100;
+    const downCash = tract * I.down/100;
+    const loan = tract - downCash;
+    const annualInterest = loan * I.landRate/100;
+    const cont = 1 + I.contingency/100;
+    const phaseA = (I.engineering + I.legal) * cont;
+    const phaseB = (I.road + I.electric + (I.includeBarndo ? I.barndo + I.septic : 0)) * cont;
+    const perHH = {
+      preform: I.preform / N,
+      closing: (downCash + closingCosts) / N,
+      calls: (phaseA + phaseB) / N,
+      carry: (annualInterest + I.landTI) * (I.monthsDeed/12) / N,
+    };
+    perHH.cashBeforeDeed = perHH.preform + perHH.closing + perHH.calls + perHH.carry;
+
+    const landAtCost = tract / N;                      // lot plus common-tract share
+    const landPayoff = loan / N;
+    const landEquity = landAtCost - landPayoff;        // what the down payment bought
+    const home = I.sqft * I.psf;
+    const value = landAtCost + home + I.utilities + I.soft;
+    const appraised = value * (1 + I.uplift/100);
+    const maxLoan = appraised * (1 - I.equity/100);
+    const cashAtDeed = I.rollLand ? 0 : landPayoff;
+    const need = value - landAtCost + (I.rollLand ? landPayoff : 0);   // what still has to be funded after the deed
+    const extraDown = Math.max(0, need - maxLoan);
+    const conLoan = need - extraDown;
+    const pi = pmt(conLoan, I.conRate, I.term);
+    const tiM = value * I.ti/100/12;
+    const piti = pi + tiM;
+    const guarMonthly = I.countGuarantee ? annualInterest/12/N : 0;
+    const incomeNoDebt = 12 * (piti + guarMonthly) / (I.dti/100);
+    const reservesCash = I.reserves * piti;
+    const liquid = perHH.cashBeforeDeed + cashAtDeed + extraDown + reservesCash;
+    return { tract, closingCosts, downCash, loan, annualInterest, phaseA, phaseB, perHH, landAtCost, landPayoff, landEquity,
+             home, value, appraised, maxLoan, cashAtDeed, extraDown, conLoan, pi, tiM, piti, guarMonthly, incomeNoDebt, reservesCash, liquid,
+             lotAcres: Math.max(0, (I.acres - I.common) / N) };
+  }
+
+  function founders(I, M){
+    const n = I.nNow, N = I.nFinal;
+    const carryYear = M.annualInterest + I.landTI;
+    const f = {
+      preform: I.preform / n,
+      closing: (M.downCash + M.closingCosts) / n,
+      phaseA: M.phaseA / n,
+      phaseB: I.foundersPhaseB ? M.phaseB / n : 0,
+      carry: carryYear * (I.monthsFull/12) / n,
+      carryYearEach: carryYear / n,
+    };
+    f.total = f.preform + f.closing + f.phaseA + f.phaseB + f.carry;
+    const fullShare = (I.preform + M.downCash + M.closingCosts + M.phaseA + (I.foundersPhaseB ? M.phaseB : 0) + carryYear*(I.monthsFull/12)) / N;
+    f.refund = Math.max(0, f.total - fullShare);
+    f.guarPro = M.loan / n; f.guarJoint = M.loan;
+    f.guarMonthly = I.countGuarantee ? M.annualInterest/12/n : 0;
+    f.incomeNoDebt = 12 * (M.piti + f.guarMonthly) / (I.dti/100);
+    f.liquid = f.total + (M.phaseB/N) * (I.foundersPhaseB ? 0 : 1) + M.cashAtDeed + M.extraDown + M.reservesCash;
+    return f;
+  }
+
+  function rows(table, data){
+    table.innerHTML = data.map(r => {
+      if (r.head) return `<tr>${r.head.map((h,i)=>`<th class="${i?'n':''}">${h}</th>`).join("")}</tr>`;
+      const cls = r.total ? ' class="total"' : "";
+      return `<tr${cls}><td>${r.k}${r.note?`<span class="note">${r.note}</span>`:""}</td>${r.v.map(v=>`<td class="n">${v}</td>`).join("")}</tr>`;
+    }).join("");
+  }
+
+  function verdict(ok, warn, title, detail){
+    const cls = ok ? "good" : (warn ? "warn" : "bad");
+    const word = ok ? "Meets" : (warn ? "Close" : "Short");
+    return `<div class="verdict"><span class="pill ${cls}">${word}</span><div><b>${title}</b><span>${detail}</span></div></div>`;
+  }
+
+  function render(){
+    const I = readInputs();
+    const M = model(I, I.nFinal);
+    const F = founders(I, M);
+    const P = M.perHH;
+
+    $("tCash").textContent = fmt(P.cashBeforeDeed); $("tCashMonths").textContent = (6 + I.monthsDeed);
+    $("tLiquid").textContent = fmt(M.liquid);
+    $("tIncome").textContent = fmt(M.incomeNoDebt) + "/yr"; $("tDti").textContent = I.dti;
+    $("tScore").textContent = Math.round(I.score); $("tGuar").textContent = fmtK(M.loan / I.nFinal);
+    $("nFinalEcho").textContent = I.nFinal; $("nFinalEcho2").textContent = I.nFinal; $("nNowEcho").textContent = I.nNow;
+
+    rows($("timeline"), [
+      {head:["Stage","Per household","Whole project"]},
+      {k:"Pre-formation", note:"months 0 to 6, at risk if feasibility fails", v:[fmt(P.preform), fmt(I.preform)]},
+      {k:"Land closing", note:`${I.down}% down on ${fmt(M.tract)} plus ${I.closingPct}% closing costs`, v:[fmt(P.closing), fmt(M.downCash + M.closingCosts)]},
+      {k:"Capital calls, Phase A", note:"engineering, plat, legal, with contingency", v:[fmt(M.phaseA/I.nFinal), fmt(M.phaseA)]},
+      {k:"Capital calls, Phase B", note:`road, electric${I.includeBarndo?", barndominium, septic":""}, with contingency`, v:[fmt(M.phaseB/I.nFinal), fmt(M.phaseB)]},
+      {k:"Land carry to deed", note:`${I.monthsDeed} months of interest at ${I.landRate}% plus taxes and insurance`, v:[fmt(P.carry), fmt((M.annualInterest + I.landTI)*(I.monthsDeed/12))]},
+      {k:"Cash before deed", total:true, v:[fmt(P.cashBeforeDeed), fmt(P.cashBeforeDeed*I.nFinal)]},
+      {k:"Land-loan guarantee", note:"pro rata share, and the whole loan if joint and several", v:[fmt(M.loan/I.nFinal), fmt(M.loan)]},
+    ]);
+
+    rows($("loan"), [
+      {head:["Line","Per household"]},
+      {k:"Land at cost", note:`${M.lotAcres.toFixed(1)} acre lot plus the common-tract share`, v:[fmt(M.landAtCost)]},
+      {k:"Land-loan payoff at release", note: I.rollLand ? "rolled into the construction loan" : "paid in cash at the deed", v:[fmt(M.landPayoff)]},
+      {k:"Home", note:`${I.sqft.toLocaleString("en-US")} sq ft at $${I.psf} per sq ft`, v:[fmt(M.home)]},
+      {k:"Lot utilities and soft costs", v:[fmt(I.utilities + I.soft)]},
+      {k:"Project value at cost", total:true, v:[fmt(M.value)]},
+      {k:"Appraised value", note:`${I.uplift}% over cost`, v:[fmt(M.appraised)]},
+      {k:"Lender's maximum loan", note:`${100 - I.equity}% of appraised value`, v:[fmt(M.maxLoan)]},
+      {k:"Land equity the household already holds", v:[fmt(M.landEquity)]},
+      {k:"Extra cash down to reach the equity requirement", v:[fmt(M.extraDown)]},
+      {k:"Construction loan", total:true, v:[fmt(M.conLoan)]},
+      {k:"Monthly principal and interest", note:`${I.conRate}% over ${I.term} years`, v:[fmt(M.pi)]},
+      {k:"Monthly taxes and insurance", note:`${I.ti}% of value a year`, v:[fmt(M.tiM)]},
+      {k:"Monthly payment", total:true, v:[fmt(M.piti)]},
+      {k:"Land-guarantee interest counted by the lender", note: I.countGuarantee ? "monthly share of land-loan interest" : "not counted", v:[fmt(M.guarMonthly)]},
+      {k:"Gross income needed, no other debt", note:`${I.dti}% debt-to-income`, v:[fmt(M.incomeNoDebt) + "/yr"]},
+      {k:"Reserves after closing", note:`${I.reserves} months of payment`, v:[fmt(M.reservesCash)]},
+      {k:"Minimum liquid cash, all stages", total:true, v:[fmt(M.liquid)]},
+    ]);
+
+    rows($("founders"), [
+      {head:["Line","Per founder","At full strength"]},
+      {k:"Pre-formation", v:[fmt(F.preform), fmt(P.preform)]},
+      {k:"Land closing", v:[fmt(F.closing), fmt(P.closing)]},
+      {k:"Phase A calls", note:"engineering, plat, legal", v:[fmt(F.phaseA), fmt(M.phaseA/I.nFinal)]},
+      {k:"Phase B calls", note: I.foundersPhaseB ? "funded by founders now" : "deferred until the group is full", v:[fmt(F.phaseB), fmt(M.phaseB/I.nFinal)]},
+      {k:"Land carry until full", note:`${I.monthsFull} months; ${fmt(F.carryYearEach)} a year each`, v:[fmt(F.carry), fmt((M.annualInterest + I.landTI)*(I.monthsFull/12)/I.nFinal)]},
+      {k:"Cash out before the group is full", total:true, v:[fmt(F.total), fmt(P.preform + P.closing + M.phaseA/I.nFinal + (I.foundersPhaseB ? M.phaseB/I.nFinal : 0) + (M.annualInterest + I.landTI)*(I.monthsFull/12)/I.nFinal)]},
+      {k:"Refund as seats sell at cost plus carry", v:[fmt(F.refund), "–"]},
+      {k:"Guarantee exposure, pro rata", v:[fmt(F.guarPro), fmt(M.loan/I.nFinal)]},
+      {k:"Guarantee exposure, joint and several", v:[fmt(F.guarJoint), fmt(M.loan)]},
+      {k:"Gross income needed, no other debt", note:"own construction loan plus the guarantee share", v:[fmt(F.incomeNoDebt) + "/yr", fmt(M.incomeNoDebt) + "/yr"]},
+      {k:"Minimum liquid cash through the build", total:true, note:"founder outlay, remaining calls, extra down, reserves", v:[fmt(F.liquid), fmt(M.liquid)]},
+    ]);
+
+    // Candidate check
+    const isFounder = I.cRole === "founder";
+    const needCash = isFounder ? F.liquid : M.liquid;
+    const guarM = isFounder ? F.guarMonthly : M.guarMonthly;
+    const needIncome = 12 * (M.piti + guarM + I.cDebt) / (I.dti/100);
+    const dtiActual = I.cIncome > 0 ? 100 * 12 * (M.piti + guarM + I.cDebt) / I.cIncome : 999;
+    const cashOk = I.cCash >= needCash, cashClose = I.cCash >= needCash * 0.9;
+    const incOk = I.cIncome >= needIncome, incClose = I.cIncome >= needIncome * 0.92;
+    const scoreOk = I.cScore >= I.score, scoreClose = I.cScore >= I.score - 20;
+    const guarNeed = isFounder ? F.guarPro : M.loan / I.nFinal;
+    const guarOk = (I.cCash + I.cIncome * 2) >= guarNeed, guarClose = (I.cCash + I.cIncome * 2) >= guarNeed * 0.8;
+    $("verdicts").innerHTML =
+      verdict(cashOk, cashClose, `Liquid cash: ${fmt(I.cCash)} against ${fmt(needCash)} needed`,
+        isFounder ? "Founder outlay through the build, including the extra down payment and reserves. Seats sold later refund part of it." : "Cash before deed, extra down payment and reserves for a household joining at full strength.") +
+      verdict(incOk, incClose, `Income: ${fmt(I.cIncome)} a year against ${fmt(needIncome)} needed`,
+        `Debt-to-income with this household's debts would be ${Math.min(dtiActual, 999).toFixed(0)}% against a ${I.dti}% cap. Monthly payment ${fmt(M.piti)}${guarM ? ", guarantee share " + fmt(guarM) : ""}, other debt ${fmt(I.cDebt)}.`) +
+      verdict(scoreOk, scoreClose, `Credit score: ${Math.round(I.cScore)} against a floor of ${Math.round(I.score)}`,
+        "Portfolio land lenders and construction lenders typically want 680 or more; some want 700. The lowest borrower score on the application counts.") +
+      verdict(guarOk, guarClose, `Guarantee capacity: ${fmt(guarNeed)} pro rata share of the land loan`,
+        "A rough screen: liquid cash plus two years of income should cover the pro rata share. Lenders underwrite every guarantor on their full financial statement, and most ask for joint and several liability for the whole loan.");
+
+    // Headcount sweep
+    const hc = [{head:["Households","Cash before deed","Minimum liquid cash","Construction loan","Income needed","Guarantee pro rata","Lot acres"]}];
+    for (let N = 3; N <= 8; N++){
+      const m = model(I, N);
+      hc.push({k:String(N) + (N === I.nFinal ? " (selected)" : ""), v:[fmt(m.perHH.cashBeforeDeed), fmt(m.liquid), fmt(m.conLoan), fmt(m.incomeNoDebt)+"/yr", fmt(m.loan/N), m.lotAcres.toFixed(1)]});
+    }
+    rows($("headcount"), hc);
+  }
+
+  document.querySelectorAll("input,select").forEach(el => el.addEventListener("input", render));
+  document.querySelectorAll("button.preset").forEach(b => b.addEventListener("click", () => {
+    $("down").value = b.dataset.down; $("landRate").value = b.dataset.rate; render();
+  }));
+  render();
+})();
+</script>

@@ -6,6 +6,9 @@ Planning repo for a cooperative self-build community near Austin, TX.
 - Friendstead Structure and Market Analysis (2026-10-22), two tabs: "Structure and market" and "Build systems, labor and tax": https://claude.ai/artifact/GPnPpzM6q64GkTv3kwCPKM
 - Zero Energy Passive Design Feasibility for Friendstead (2026-10-24), three tabs: "Feasibility" (ZERH-grade envelope recommended, Phius optional, co-op solar economics after the 2025 credit sunset), "Cost-effective design" (cheapest net-zero form, build system and package for the member homes) and "Prefab walls" (factory wall panels buy back member hours at $15 to $30 an hour but save no cash; exterior walls yes, interior as an option): https://claude.ai/artifact/6EXUtrMb4YmZxhAid7Ex2b
 
+## Tools
+- Member finance calculator (2026-10-25): per-household cash timeline, construction-loan and income requirements, founder scenario, candidate pass/fail check and a headcount sweep. Source `tools/member-finance-calculator.html`, published at https://claude.ai/artifact/9JMzkMfRNipFKTboQC2Tbc
+
 ## Walkthrough
 - Barndominium v5 walkthrough (Three.js, from the IFC): https://claude.ai/artifact/HsUtQdhz5YpM2NvhuqUwLT
 
@@ -14,6 +17,7 @@ Planning repo for a cooperative self-build community near Austin, TX.
 - `sources/` source material, one file each, dated; includes the archived Texas statute and court-opinion excerpts (2026-10-23)
 - `notes/` working notes and decision logs (`notes/2026-10-22-decisions.md`, `notes/2026-10-23-decisions.md`)
 - `drafts/` exported copies of documents
+- `tools/` single-file HTML calculators; the published copies are linked under Tools above
 
 ## Designs
 

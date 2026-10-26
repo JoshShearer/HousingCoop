@@ -45,6 +45,7 @@ A friend-group self-build community on 20 to 40 acres near Austin, Texas. Resear
 | Where numbers come from | [[Friendstead Sources]] |
 | What changed when | [[Friendstead Decision Log]] |
 | What each household pays in, by headcount | [[Per-Member Cost Model#What each household puts in, by headcount]] |
+| Whether a household can afford a seat: cash, loan, income, score | [Member finance calculator](https://claude.ai/artifact/9JMzkMfRNipFKTboQC2Tbc) |
 | What property tax looks like over 20 years | [[Tax and Code Savings#Property tax over 20 years]] |
 | Which efficiency and clean-energy incentives still exist | [[Energy Incentives]] |
 

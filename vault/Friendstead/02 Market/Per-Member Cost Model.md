@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: model
-updated: 2026-10-24
+updated: 2026-10-25
 ---
 
 # Per-Member Cost Model
@@ -49,6 +49,8 @@ Most of the shared pot does not shrink when fewer households join: the 10-acre c
 | 4 | $235,000 | $164,000 | $15,000 | $75,000 | 750 |
 | 6 | $157,000 | $109,000 | $10,000 | $50,000 | 500 |
 | 8 | $117,000 | $82,000 | $7,500 | $37,500 | 375 |
+
+The same model, with the land loan, construction loan, founder scenario and a per-candidate check, is interactive in the [member finance calculator](https://claude.ai/artifact/9JMzkMfRNipFKTboQC2Tbc) (source in the repo at `tools/member-finance-calculator.html`). Change the tract, headcount, financing terms or home and it recomputes the cash before the deed, the loan a household must qualify for, the income that implies and the minimum liquid cash.
 
 How to read it **[M]**:
 
