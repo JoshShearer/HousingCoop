@@ -1,7 +1,7 @@
 ---
 tags: [friendstead]
 type: analysis
-updated: 2026-10-22
+updated: 2026-10-28
 ---
 
 # Jurisdiction and Feasibility
@@ -29,3 +29,4 @@ Bastrop and Caldwell allow the densest layout for a well-and-septic subdivision;
 1. A central water system serving 15 connections or 25 people for 60 days a year is a TCEQ public water system with testing and operator duties **[S15]**. Six households can cross the 25-person line, so individual wells are the safer default.
 2. A tract inside a city's ETJ follows the city's subdivision rules. Since September 2023 a landowner can petition for release from most ETJs under SB 2038 **[S16]**; verify eligibility for any candidate tract before contracting.
 3. Every county exempts a division into lots over 10 acres from platting **[S11]**, and every county still requires OSSF, driveway and 911 permits on exempt lots **[S8]**.
+4. No county inspects the houses. In a county that has adopted Subchapter F of Chapter 233 (Bastrop did on 14 September 2009), a new house must meet the 2008 IRC or the county seat's version, and the builder hires a licensed engineer, architect, TREC inspector or ICC residential combination inspector for the foundation, framing-and-mechanical and final inspections; the county issues no permit, charges no fee and sees no report ([Tex. Loc. Gov't Code §§ 233.152 to 233.154](https://statutes.capitol.texas.gov/Docs/LG/htm/LG.233.htm#233.153)) **[S142]**. The statewide residential energy code is the 2015 IRC energy chapter, shown outside a city by an accredited programme, a private inspector or the builder's own certification (Health & Safety Code §§ 388.003 and 388.004) **[S143]**. The group's own inspector, engineer, lender and insurer are therefore the gate on everything from reused materials ([[Reclaimed and Surplus Materials]]) to owner-built framing.

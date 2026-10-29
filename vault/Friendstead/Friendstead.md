@@ -2,7 +2,7 @@
 tags: [friendstead, moc]
 type: map-of-content
 status: research
-updated: 2026-10-25
+updated: 2026-10-28
 ---
 
 # Friendstead
@@ -33,7 +33,9 @@ A friend-group self-build community on 20 to 40 acres near Austin, Texas. Resear
 | Net-zero or Passive House, and what it costs here | [[Zero Energy Passive Design]] |
 | The cheapest net-zero house: form, system, package | [[Cost-Effective Net-Zero Design]] |
 | Factory wall panels: what they cost and what hours they buy back | [[Prefab Wall Panels]] |
+| The app for invites, ideas and votes during the exploration year | [[Community App]] |
 | Where material prices have gone | [[Building Materials Price History]] |
+| What can be reclaimed, surplus or seconds, and what cannot | [[Reclaimed and Surplus Materials]] |
 | Could members make their own SIPs | [[Self-Made SIP Panels]] |
 | Who can do what work | [[Member Labor Matrix]] |
 | How hours stay fair: skill, pacing, freeloaders | [[Labor Rules and Fairness]] |
