@@ -27,11 +27,13 @@ A friend-group self-build community on 20 to 40 acres near Austin, Texas. Resear
 | Which county allows which lot size | [[Jurisdiction and Feasibility]] |
 | What land and homes cost right now | [[Austin Land and Home Market]] |
 | What each household pays | [[Per-Member Cost Model]] |
+| The same plan on 0.5 to 2 acre homesites | [[Smaller Homesite Arrangement]] |
 | Co-op versus buying | [[Co-op vs Buying Outright]] |
 | Savings not yet in the model | [[Further Cost Levers]] |
 | Stick, SIP or barndominium | [[Build Systems Compared]] · [[Energy Costs by Envelope]] |
 | Net-zero or Passive House, and what it costs here | [[Zero Energy Passive Design]] |
 | The cheapest net-zero house: form, system, package | [[Cost-Effective Net-Zero Design]] |
+| Solar for one house: three designs, parts and prices | [[Single-House Solar Design]] |
 | Factory wall panels: what they cost and what hours they buy back | [[Prefab Wall Panels]] |
 | The app for invites, ideas and votes during the exploration year | [[Community App]] |
 | Where material prices have gone | [[Building Materials Price History]] |
