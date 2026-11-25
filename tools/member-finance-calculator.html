@@ -37,7 +37,10 @@ input[type=number]:focus,select:focus,button:focus,input[type=checkbox]:focus{ou
 .check{display:flex;gap:8px;align-items:center;padding:6px 0;font-size:.9rem}
 .presets{display:flex;gap:6px;flex-wrap:wrap;padding:6px 0 2px}
 button.preset{font:13px var(--sans);padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);cursor:pointer}
-button.preset:hover{border-color:var(--accent)}
+button.preset:hover,button.arr:hover{border-color:var(--accent)}
+button.arr{font:13px var(--sans);padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);cursor:pointer}
+button.arr[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.hint{margin:6px 0 0;color:var(--muted);font-size:.8rem;line-height:1.4}
 .results{display:grid;gap:20px;min-width:0}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .tile{background:var(--tile);border-radius:8px;padding:12px 14px}
@@ -75,17 +78,27 @@ footer{color:var(--muted);font-size:.8rem;max-width:80ch}
 <div class="wrap">
 <header>
   <h1>Friendstead Member Finance Calculator</h1>
-  <p>What a household must have in cash, income and credit to join the self-build, at any tract price, headcount and lending terms. Defaults are the 24 Oct 2026 east-of-Austin model; all outputs are modelled figures, not quotes, and nothing here is lending or legal advice.</p>
+  <p>What a household must have in cash, income and credit to join the self-build, at any tract price, headcount and lending terms. Pick a homesite arrangement to load its tract and costs: the defaults are the 24 Oct 2026 east-of-Austin model for 2 to 5 acre homesites, and the smaller arrangements were priced on 21 Nov 2026; all outputs are modelled figures, not quotes, and nothing here is lending or legal advice.</p>
 </header>
 
 <div class="cols">
 <div class="rail">
 
 <fieldset>
+  <legend>Homesite arrangement</legend>
+  <div class="presets" role="group" aria-label="Homesite arrangement">
+    <button type="button" class="arr" data-arr="large" aria-pressed="true">2 to 5 acres</button>
+    <button type="button" class="arr" data-arr="smallPublic" aria-pressed="false">0.5 to 2 acres, public water</button>
+    <button type="button" class="arr" data-arr="smallWell" aria-pressed="false">1 to 2 acres, wells</button>
+  </div>
+  <p class="hint" id="arrNote"></p>
+</fieldset>
+
+<fieldset>
   <legend>Tract and headcount</legend>
   <div class="row"><label for="acres">Tract size<small>acres</small></label><input type="number" id="acres" value="30" min="5" step="1"></div>
   <div class="row"><label for="ppa">Price per acre<small>$ asking, east side ~$28,000</small></label><input type="number" id="ppa" value="28000" min="1000" step="500"></div>
-  <div class="row"><label for="common">Common tract<small>acres held by the association</small></label><input type="number" id="common" value="10" min="0" step="1"></div>
+  <div class="row"><label for="common">Common tract<small>acres held by the association, with any separate road strip</small></label><input type="number" id="common" value="10" min="0" step="0.5"></div>
   <div class="row"><label for="nFinal">Households at full strength</label><input type="number" id="nFinal" value="6" min="2" max="12" step="1"></div>
   <div class="row"><label for="nNow">Founding households<small>who close on the land</small></label><input type="number" id="nNow" value="3" min="1" max="12" step="1"></div>
   <div class="row"><label for="monthsFull">Months until full<small>from closing to the last seat filled</small></label><input type="number" id="monthsFull" value="18" min="0" step="1"></div>
@@ -123,7 +136,7 @@ footer{color:var(--muted);font-size:.8rem;max-width:80ch}
   <legend>Each household's home</legend>
   <div class="row"><label for="sqft">Home size<small>sq ft</small></label><input type="number" id="sqft" value="2000" min="600" step="50"></div>
   <div class="row"><label for="psf">Cost per sq ft<small>$ owner-built; 168 at 1,500 hours, 145 at 3,000</small></label><input type="number" id="psf" value="168" min="50" step="1"></div>
-  <div class="row"><label for="utilities">Lot utilities<small>well, septic, electric drop, driveway</small></label><input type="number" id="utilities" value="50000" min="0" step="1000"></div>
+  <div class="row"><label for="utilities">Lot utilities<small id="utilNote">well, septic, electric drop, driveway</small></label><input type="number" id="utilities" value="50000" min="0" step="1000"></div>
   <div class="row"><label for="soft">Soft costs<small>plans, permits, builder's risk, contingency</small></label><input type="number" id="soft" value="30000" min="0" step="1000"></div>
 </fieldset>
 
@@ -307,6 +320,7 @@ footer{color:var(--muted);font-size:.8rem;max-width:80ch}
   }
 
   function render(){
+    markArrangement();
     const I = readInputs();
     const M = model(I, I.nFinal);
     const F = founders(I, M);
@@ -394,6 +408,32 @@ footer{color:var(--muted);font-size:.8rem;max-width:80ch}
     }
     rows($("headcount"), hc);
   }
+
+  // Homesite arrangements: each sets the tract and the costs that change with lot size. Everything stays editable after.
+  const ARR = {
+    large: {acres:30, ppa:28000, common:10, road:150000, electric:60000, utilities:50000,
+      utilNote:"well, septic, electric drop, driveway",
+      note:"Six homesites of 2, 3 or 5 acres and a 10-acre common tract on about 30 acres, each with its own well. The 24 Oct 2026 base case."},
+    smallPublic: {acres:18, ppa:33000, common:11, road:100000, electric:45000, utilities:36000,
+      utilNote:"water tap, septic, electric drop, driveway",
+      note:"Six homesites of 0.5, 1 or 2 acres, a 10-acre common tract and about an acre of road on about 18 acres. Needs a public water line at the tract; tracts with one ask about $33,000 an acre. Priced 21 Nov 2026."},
+    smallWell: {acres:20, ppa:28000, common:11, road:100000, electric:45000, utilities:48000,
+      utilNote:"well, septic, electric drop, driveway",
+      note:"Six homesites of 1, 1.5 or 2 acres, a 10-acre common tract and about an acre of road on about 20 acres. One acre is the state floor for a lot with a well and septic. Priced 21 Nov 2026."},
+  };
+  const ARR_KEYS = ["acres","ppa","common","road","electric","utilities"];
+  function markArrangement(){
+    let hit = null;
+    for (const [k, a] of Object.entries(ARR)) if (ARR_KEYS.every(f => num(f) === a[f])) hit = k;
+    document.querySelectorAll("button.arr").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.arr === hit)));
+    $("arrNote").textContent = hit ? ARR[hit].note : "Custom figures: the inputs below no longer match a preset arrangement.";
+  }
+  document.querySelectorAll("button.arr").forEach(b => b.addEventListener("click", () => {
+    const a = ARR[b.dataset.arr];
+    ARR_KEYS.forEach(f => { $(f).value = a[f]; });
+    $("utilNote").textContent = a.utilNote;
+    render();
+  }));
 
   document.querySelectorAll("input,select").forEach(el => el.addEventListener("input", render));
   document.querySelectorAll("button.preset").forEach(b => b.addEventListener("click", () => {
